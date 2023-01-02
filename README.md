@@ -10,5 +10,5 @@ A redesigned portfolio app.
 * Latest technologies and efficient code.
 * Testing with Jest and Enzyme.
 
-![Screenshot01](./portfolio/public/assets/images/ss-001.png)
 
+<img width="1428" alt="ss-001" src="https://user-images.githubusercontent.com/38369815/210254705-b7fd55d9-9764-4303-a25a-474d1d4ab77c.png">
