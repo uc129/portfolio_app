@@ -7,7 +7,7 @@ export const ProjectCard=({project,size}:any)=>{
 
 
     const small =
-        <div className={'grid grid-rows-7 max-w-xs bg-amber-50 border-2 p-2 break-words'}>
+        <div className={'grid grid-rows-7 max-w-xs bg-gray-600 bg-opacity-20 border-2 p-2 break-words z-10'}>
         <h1>{project.name}</h1>
         <span> ---- </span>
         <br/>

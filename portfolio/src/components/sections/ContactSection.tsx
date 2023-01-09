@@ -1,12 +1,11 @@
-import {useEffect} from "react";
 import CustomForm, {CustomFormField} from "../customForm";
+import {Toolbar} from "../Toolbar";
 
-export const ContactSection = ({options}:any) => {
+export const ContactSection = () => {
 
     //Send Tools to toolbar
-    useEffect(()=>{
-        options([{name:'Contact-1', link:'/contact-me'}])
-    },[options])
+    let tools = [{name: 'Send', link: '/contact/send'}]
+
 
     const formFields:CustomFormField[] = [
         {name:'name', type:'text', placeholder:'Utkarsh',min:3,max:20},
@@ -16,10 +15,11 @@ export const ContactSection = ({options}:any) => {
     ]
 
     return (
-
+<>
+        <Toolbar tools={tools}/>
         <CustomForm fields={formFields} form_title={'Contact Me Form'} form_method={'post'}
                     form_action={'http://localhost:5000/api/contactme'} />
-
+</>
     )
 
 }

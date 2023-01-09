@@ -2,11 +2,12 @@ import { ProjectCard } from "./ProjectCard";
 import {useEffect, useState} from "react";
 import sanityClient from "../lib/sanity.client";
 import {useParams} from "react-router-dom";
-const Project= ({options}:any) => {
+import {Toolbar} from "./Toolbar";
+const Project= () => {
 
-    useEffect(()=>{
-        options([{name:'Project 1', link:'/project-1'}])
-    },[options])
+
+      let tools=[{name:'Project 1', link:'/project-1'}]
+
 
     const {slug} = useParams();
     const [projects, setProjects] = useState([]);
@@ -18,7 +19,11 @@ const Project= ({options}:any) => {
     }, []);
     // @ts-ignore
     const curr = projects?.find((project:any)=>project.slug.current === slug);
-    if (curr) return<> <ProjectCard project={curr} size={'large'}/></>
+    if (curr)
+        return<>
+            <Toolbar tools={tools}/>
+        <ProjectCard project={curr} size={'large'}/>
+            </>
     return <></>
 }
 export default Project

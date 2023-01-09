@@ -1,47 +1,20 @@
-const db = require("./models/index");
-const Role = db.role;
+import mongoose from "mongoose";
+
 
 let dbConfig = {
-    URL:'mongodb://docker:mongopw@localhost:55001',
-    HOST:'localhost',
-    PORT:'55001',
-    DB:''
+    URL:'mongodb+srv://uc129:mongo@cluster0.fvxgr2p.mongodb.net/?retryWrites=true&w=majority',
+    // URL:'mongodb://docker:mongopw@localhost:55000',
+    DB:'uc129',
 };
 
-export const connectDB = async () => {
-    db.mongoose.set('strictQuery', true)
-    db.mongoose
-        .connect(dbConfig.URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        },
+export const connectDB = () => {
+    mongoose.set('strictQuery', true)
+    mongoose
+        .connect(dbConfig.URL,
             (err: any) => {
             console.error("Connection error", err);
-            process.exit()})
-    initial()
-
-    function initial() {
-        Role.estimatedDocumentCount((err: any, count: number) => {
-            if (!err && count === 0) {
-                new Role({
-                    name: "user"
-                }).save();
-
-                new Role({
-                    name: "moderator"
-                }).save();
-
-                new Role({
-                    name: "admin"
-                }).save();
-            }
-
-            if (err) {
-                console.log("error", err);
-            }
-        });
-    }
-
+            !err && console.log("Connected to MongoDB");
+            })
 }
 
 

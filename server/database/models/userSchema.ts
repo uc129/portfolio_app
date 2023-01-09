@@ -3,9 +3,9 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const userModel = new Schema({
-  name: String, // String is shorthand for {type: String}
-  email: String,
+const userSchema = new Schema({
+  name: {type: String, required: true,message:'Please enter a name'},
+  email: {type: String, unique: true, required: true,message:'Please enter a valid email address'},
   password: String,
   profession: String,
   profilePic: String,
@@ -23,5 +23,5 @@ const userModel = new Schema({
   ]
 });
 
-const User = mongoose.model('User', userModel);
-export { User, userModel };
+const User = mongoose.model('User', userSchema);
+export { User, userSchema };

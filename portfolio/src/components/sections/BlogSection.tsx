@@ -1,17 +1,19 @@
 import {BlogPostCard} from "../BlogPostCard";
 import {Posts} from "../../data/BlogData";
-import {useEffect} from "react";
+import {Toolbar} from "../Toolbar";
 
-export const BlogSection = ({options}: any) => {
+export const BlogSection = () => {
 
-    useEffect(() => {
-        options([{name: 'Sign Up', link: '/blog/sign-up'}, {name: 'Log In', link: '/blog/log-in'},
+ let tools=[{name: 'Sign Up', link: '/blog/sign-up'}, {name: 'Log In', link: '/blog/log-in'},
             {name: 'Log Out', link: '/blog/log-out'}, {name: 'New Post', link: '/blog/create-post'},
-            {name: 'Manage Posts', link: '/blog/manage-posts'}])
-    }, [])
+            {name: 'Manage Posts', link: '/blog/manage-posts'}]
 
 
-    return (<div className={'px-6 w-[1224px] flex-col justify-center'}>
+
+    return (
+        <>
+            <Toolbar tools={tools}/>
+        <div className={'px-6 w-[1224px] flex-col justify-center'}>
             <h1 className={'text-center'}>Blog Section</h1>
             <div className={'flex py-6'}>
                 {Posts.map((post) => {
@@ -21,5 +23,7 @@ export const BlogSection = ({options}: any) => {
                 })}
 
             </div>
-        </div>)
+        </div>
+        </>
+    )
 }

@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const Role = mongoose.model(
+export const Role = mongoose.model(
     "Role",
     new mongoose.Schema({
         name: String

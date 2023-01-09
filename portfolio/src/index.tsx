@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import {Auth0Provider} from "@auth0/auth0-react";
+
+
 
 
 const root = ReactDOM.createRoot(
@@ -15,14 +16,12 @@ root.render(
         //     </React.StrictMode>
         // </Auth0Provider>
 
-    <Auth0Provider
-        domain="dev-53kp8vzt014zx0dm.us.auth0.com"
-        clientId="Gs7z3LR164N712qoH7wYf8kdCa5AkU5j"
-        redirectUri={window.location.origin}
-    >
-        <React.StrictMode><App /></React.StrictMode>
 
-    </Auth0Provider>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+
+
 
 );
 

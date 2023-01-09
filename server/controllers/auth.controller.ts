@@ -1,5 +1,5 @@
 /** @format */
-import { User } from '../database/models/user.model';
+import { User } from '../database/models/userSchema';
 export async function createUser(user_data: any) {
   let user = '';
   if (user_data) {

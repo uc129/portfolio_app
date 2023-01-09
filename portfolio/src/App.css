@@ -1,5 +1,5 @@
 /*noinspection CssUnknownTarget*/
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;800&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;800&display=swap');*/
 
 @tailwind base;
 @tailwind components;
@@ -8,20 +8,33 @@
 
 body,html{
     margin: 0;
-    /*padding: 2px;*/
-    /*overflow: hidden;*/
     overflow-x:hidden;
+    overflow-y: hidden;
+    cursor: crosshair;
+    background-color: white;
+    font-family: 'Nixie One', cursive;
+}
 
+
+
+h1,h2,p,span,button,a,input{
+    z-index: 100;
+    cursor: crosshair;
 }
-@font-face {
-    font-family: 'Inconsolata', monospace;
-    src: local('Paper'),
-    url('../public/font/Inconsolata/Inconsolata-VariableFont.ttf') format('ttf')
+a{
+    text-decoration: none;
 }
+/*@font-face {*/
+/*    font-family: 'Inconsolata', monospace;*/
+/*    src: local('Paper'),*/
+/*    url('../public/font/Inconsolata/Inconsolata-VariableFont.ttf') format('ttf')*/
+/*}*/
 
 .background{
 /*overflow-y:hidden;*/
 }
+
+
 
 
 .form-input-group{
@@ -40,48 +53,50 @@ body,html{
     outline: none;
 }
 
-.is-active{
-    @apply border-2 border-black
-}
+
 
 
 .bg-img{
-    animation: vertical 400s  linear infinite alternate-reverse;
-    @apply opacity-60 -z-10 h-[220px] w-[220px] mix-blend-overlay
+    /*animation: vertical 1800s alternate infinite ease-in-out;*/
+    @apply opacity-80 h-[220px] w-[220px]  hover:opacity-100
 }
 
 
+.bg-wrapper{
+    @apply animate-vertical
+}
 
 
+body{
+    animation: hue-rotation 10s infinite alternate linear;
+}
+body h1, h2, p, span, button, a, input{
+    @apply font-paragraph
+}
+.footer-section{
+    /*background-size: */
+    background: url('../public/assets/art/Hanuman Banner.svg') center ;
+}
+.footer-section:hover p{
+    /*transform: scale(1.2);*/
+    transform: translateY(-36px) scale(1.2);
+}
 
 /*///*/
 
-@keyframes color{
-    0%{
-        background: #f3f4f6;
+
+
+@keyframes hue-rotation {
+    0% {
+        color: #01233a;
     }
-    100%{
-        background: #1f2937;
+    100% {
+        color: #030303;
     }
 }
 
-@keyframes vertical {
-    0%{
-        transform: translateY(-40px);
-    }
-    80% {
-        transform: translateX(-10px);
 
-    }
-    90%{
-        transform: translateX(10px);
 
-    }
-    100%{
-        transform: translateY(100px);
-
-    }
-}
 
 
 
