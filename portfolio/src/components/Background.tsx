@@ -1,75 +1,75 @@
 
-const art:BackgroundItemProps[] = [
+const art: BackgroundItemProps[] = [
     {
-    name: 'Asset 25', url: '/assets/art/Asset 25.svg', link: '#',
-}, {
-    name: 'Asset 47', url: '/assets/art/Asset 47.svg', link: '#'
-}, {
-    name: 'Hanuman SuryaNamaskar', url: '/assets/art/Hanuman-SuryaNamaskar.svg', link: '#'
-}, {
-    name: 'Krishna Yashoda', url: '/assets/art/Krishna Yashoda.svg', link: '#'
-}, {
-    name: 'Lakshman Ram Sita', url: '/assets/art/Lakshman Ram Sita.svg', link: '#'
-}, {
-    name: 'Raavan', url: '/assets/art/Raavan.svg', link: '#'
-}, {
-    name: 'Radha and Krishna', url: '/assets/art/Radha and Krishna.svg', link: '#'
-}, {
-    name: 'Radha Krishna', url: '/assets/art/Radha Krishna.svg', link: '#'
-}, {
-    name: 'RajaGopalSwami', url: '/assets/art/RajaGopalSwami.svg', link: '#'
-}, {
-    name: 'Ram', url: '/assets/art/Ram.svg', link: '#'
-}, {
-    name: 'Ram Bhakt Hanuman', url: '/assets/art/Ram Bhakt Hanuman.svg', link: '#'
-}, {
-    name: 'Ram Hanuman', url: '/assets/art/Ram Hanuman.svg', link: '#'
-}, {
-    name: 'Sanjivini', url: '/assets/art/Sanjivini.svg', link: '#'
-}, {
-    name: 'Shiva and Krishna', url: '/assets/art/Shiva and Krishna.svg', link: '#'
-}, {
-    name: 'Shiva Shambhu', url: '/assets/art/Shiva Shambhu.svg', link: '#'
-}, {
-    name: 'Shyam', url: '/assets/art/Shyam.svg', link: '#'
-}, {
-    name: 'Siddhi', url: '/assets/art/Siddhi.svg', link: '#'
-}, {
-    name: 'Ram Sita Bhakti', url: '/assets/art/Sita-Ram Bhakti.svg', link: '#'
-}, {
-    name: 'Srinathji lifting Govardhan', url: '/assets/art/Srinathji lifting Govardhan.svg', link: '#'
-}, {
-    name: 'Sripati', url: '/assets/art/Sripati.svg', link: '#'
-}, {
-    name: 'Surasa', url: '/assets/art/Surasa.svg', link: '#'
-}, {
-    name: 'Udupi Krishna', url: '/assets/art/Udupi Krishna.svg', link: '#'
-}, {
-    name: 'Vaikuntha Vishnu', url: '/assets/art/Vaikuntha Vishnu.svg', link: '#'
-}, {
-    name: 'Vata Patra Narayan', url: '/assets/art/VataPatra Narayan.svg', link: '#'
-}, {
-    name: 'Vibhishan', url: '/assets/art/Vibhishan.svg', link: '#'
-}, {
-    name: 'Virat Swaroop Hanuman', url: '/assets/art/Virat Swaroop Hanuman.svg', link: '#'
-}, {
-    name: 'Vishnu -', url: '/assets/art/Vishnu -.svg', link: '#'
-}, {
-    name: 'Vishnu-Earth', url: '/assets/art/Vishnu-Earth.svg', link: '#'
-}, {
-    name: 'Vrindavan', url: '/assets/art/Vrindavan.svg', link: '#'
-}, {
-    name: 'Vyasa', url: '/assets/art/Vyasa.svg', link: '#'
-}, {
-    name: 'Yashoda Krishna', url: '/assets/art/Yashoda Krishna.svg', link: '#',
+        name: 'Asset 25', url: '/assets/art/Asset 25.svg', link: '#',
+    }, {
+        name: 'Asset 47', url: '/assets/art/Asset 47.svg', link: '#'
+    }, {
+        name: 'Hanuman SuryaNamaskar', url: '/assets/art/Hanuman-SuryaNamaskar.svg', link: '#'
+    }, {
+        name: 'Krishna Yashoda', url: '/assets/art/Krishna Yashoda.svg', link: '#'
+    }, {
+        name: 'Lakshman Ram Sita', url: '/assets/art/Lakshman Ram Sita.svg', link: '#'
+    }, {
+        name: 'Raavan', url: '/assets/art/Raavan.svg', link: '#'
+    }, {
+        name: 'Radha and Krishna', url: '/assets/art/Radha and Krishna.svg', link: '#'
+    }, {
+        name: 'Radha Krishna', url: '/assets/art/Radha Krishna.svg', link: '#'
+    }, {
+        name: 'RajaGopalSwami', url: '/assets/art/RajaGopalSwami.svg', link: '#'
+    }, {
+        name: 'Ram', url: '/assets/art/Ram.svg', link: '#'
+    }, {
+        name: 'Ram Bhakt Hanuman', url: '/assets/art/Ram Bhakt Hanuman.svg', link: '#'
+    }, {
+        name: 'Ram Hanuman', url: '/assets/art/Ram Hanuman.svg', link: '#'
+    }, {
+        name: 'Sanjivini', url: '/assets/art/Sanjivini.svg', link: '#'
+    }, {
+        name: 'Shiva and Krishna', url: '/assets/art/Shiva and Krishna.svg', link: '#'
+    }, {
+        name: 'Shiva Shambhu', url: '/assets/art/Shiva Shambhu.svg', link: '#'
+    }, {
+        name: 'Shyam', url: '/assets/art/Shyam.svg', link: '#'
+    }, {
+        name: 'Siddhi', url: '/assets/art/Siddhi.svg', link: '#'
+    }, {
+        name: 'Ram Sita Bhakti', url: '/assets/art/Sita-Ram Bhakti.svg', link: '#'
+    }, {
+        name: 'Srinathji lifting Govardhan', url: '/assets/art/Srinathji lifting Govardhan.svg', link: '#'
+    }, {
+        name: 'Sripati', url: '/assets/art/Sripati.svg', link: '#'
+    }, {
+        name: 'Surasa', url: '/assets/art/Surasa.svg', link: '#'
+    }, {
+        name: 'Udupi Krishna', url: '/assets/art/Udupi Krishna.svg', link: '#'
+    }, {
+        name: 'Vaikuntha Vishnu', url: '/assets/art/Vaikuntha Vishnu.svg', link: '#'
+    }, {
+        name: 'Vata Patra Narayan', url: '/assets/art/VataPatra Narayan.svg', link: '#'
+    }, {
+        name: 'Vibhishan', url: '/assets/art/Vibhishan.svg', link: '#'
+    }, {
+        name: 'Virat Swaroop Hanuman', url: '/assets/art/Virat Swaroop Hanuman.svg', link: '#'
+    }, {
+        name: 'Vishnu -', url: '/assets/art/Vishnu -.svg', link: '#'
+    }, {
+        name: 'Vishnu-Earth', url: '/assets/art/Vishnu-Earth.svg', link: '#'
+    }, {
+        name: 'Vrindavan', url: '/assets/art/Vrindavan.svg', link: '#'
+    }, {
+        name: 'Vyasa', url: '/assets/art/Vyasa.svg', link: '#'
+    }, {
+        name: 'Yashoda Krishna', url: '/assets/art/Yashoda Krishna.svg', link: '#',
 
-}, {
-    name: 'Yashoda Maa', url: '/assets/art/Yashoda Maa.svg', link: '#',
+    }, {
+        name: 'Yashoda Maa', url: '/assets/art/Yashoda Maa.svg', link: '#',
 
-}, {
-    name: 'Yashoda-Krishna', url: '/assets/art/Yashoda-Krishna.svg', link: '#',
+    }, {
+        name: 'Yashoda-Krishna', url: '/assets/art/Yashoda-Krishna.svg', link: '#',
 
-}]
+    }]
 // const art2:BackgroundItemProps[] = [
 //     {
 //         name: 'Asset 156', url: '/assets/art v2/Asset 156.svg', link: '#',
@@ -148,26 +148,29 @@ const art:BackgroundItemProps[] = [
 //
 // ]
 export interface BackgroundImageProps {
-    image:BackgroundItemProps,
-    classes?:string
-    onClick?:()=>void
-    onHover?:()=>void
+    image: BackgroundItemProps,
+    classes?: string
+    onClick?: () => void
+    onHover?: () => void
 }
+
 export interface BackgroundItemProps {
-    name:string,
-    url:string,
-    link:string
+    name: string,
+    url: string,
+    link: string
 }
 
 
-const BackgroundImage = ({image, onClick,onHover}:BackgroundImageProps) => {
+const BackgroundImage = ({image, onClick, onHover}: BackgroundImageProps) => {
     return <a href={image.link}>
+
         <object key={image.url} aria-label={image.name} className={`bg-img p-4 hover:animate-swing`} draggable={false}
-             data={image.url} onClick={() => onClick && onClick()}  onMouseEnter={()=>onHover && onHover()}/>
+                data={image.url} onClick={() => onClick && onClick()} onMouseEnter={() => onHover && onHover()}/>
+
     </a>
 }
 
-const Background = ({children}:any) => {
+const Background = ({children}: any) => {
 
     // useEffect(() => {
     //     const handleContextmenu = (e:any) => {
@@ -178,18 +181,13 @@ const Background = ({children}:any) => {
     //         document.removeEventListener('contextmenu', handleContextmenu)
     //     }
     // }, [ ])
-
     return (<>
-        <div
-            className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' +
-                ' absolute top-0 left-0'}>
+        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0'}>
             {art.map((image: BackgroundItemProps, index: number) => {
+                return <BackgroundImage key={index} image={image} classes={''}
+                                     onClick={() => console.log(image.name)}/>
 
-                return <BackgroundImage key={index} image={image} classes={''} onHover={()=>console.log(image.url)} onClick={() => console.log(image.name)}/>
             })}
-            {/*{art2.map((image: BackgroundItemProps, index: number) => {*/}
-            {/*    return <BackgroundImage key={index} image={image} classes={''} onHover={()=>console.log(image.url)} onClick={() => console.log(image.name)}/>*/}
-            {/*})}*/}
         </div>
         {children}
     </>)

@@ -8,6 +8,7 @@ const Schema= mongoose.Schema;
 const PostSchema = new Schema({
     authorID: {type: Schema.Types.ObjectId, ref: 'User', required: true},
     title: String,
+    description: String,
     content: String,
     date: { type: Date, default: Date.now },
     slug: String,
@@ -22,12 +23,7 @@ const PostSchema = new Schema({
         meta1: String,
         meta2: String,
     },
-    categories: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Category"
-        }
-    ],
+    categories: [String],
     tags: [String],
     likes: Number,
     dislikes: Number,
@@ -37,7 +33,7 @@ const PostSchema = new Schema({
     imageAlt: String,
     imageTitle: String,
     imageCaption: String,
-    user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+
 
 
 

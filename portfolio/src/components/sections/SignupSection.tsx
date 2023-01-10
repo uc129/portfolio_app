@@ -4,6 +4,7 @@ import CustomForm, {CustomFormField} from '../customForm';
 
 
 
+
 export const SignupSection = () => {
   const form_fields: CustomFormField[] = [
     {type:'image',name:'image',placeholder: 'signup image',value:'https://avatars.githubusercontent.com/u/42912083?v=4'},
@@ -21,11 +22,17 @@ export const SignupSection = () => {
     { type: 'submit', name: 'submit', value: 'Sign Up' },
 
   ];
+
+
+
+
+
   return (
     <CustomForm
       fields={form_fields}
       form_title={'Sign Up Form'}
-      type={'signup'}
+      type={'register'}
+      // retrieveFormData={(data) => setFormData(data)}
     />
   );
 };

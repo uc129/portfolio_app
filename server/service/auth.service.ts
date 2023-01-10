@@ -26,20 +26,22 @@ export default class AuthService{
     }
 
     async loginfn(formData: any) {
-        let user:any;
+        // let check = checkAuth();
         const {email,password}=formData
-        await User.findOne({email:email}).then((res) => (user = res));
-        console.log('logged in user',user)
-        !user && (this.error='Login: User not found')
-        if (user) {
+        const user=await User.findOne({email:email})
+        console.log('found user',user)
+        if(!user) this.error='Login: User not found'
+        else if (user && user.password) {
             await bcrypt.compare(password, user.password)
-                .then((res) => (this.compare = res)).catch((err) => (this.error = err));
+                .then((res) => (this.compare = res)).catch((err) => (this.error = 'Password error'+err));
+            this.compare && (this.token = await this.generateToken({id: user.id}))
         }
-        this.compare && (this.token=await this.generateToken({id:user.id}))
-        if (this.error)
+        if (this.error){
+            console.log('login error',this.error)
             return {error: this.error}
+        }
         else
-            return {token:this.token,user: {id:user.id,name:user.name,},login:this.compare};
+            return {token:this.token, user:{id:user?.id,name:user?.name}, login:this.compare};
     }
 
     hashPassword = async (password: string) => {
@@ -70,5 +72,15 @@ export default class AuthService{
         console.log( {token:token,user:new_user,error:error})
         return {token:token,user:new_user,error:error}
 
+    }
+
+    async logout (req: any, res: any){
+        try {
+            req.user = undefined;
+            res.json({logout:true})
+            console.log('logout: true')
+        } catch (error) {
+            res.json(error)
+        }
     }
 }

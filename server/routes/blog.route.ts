@@ -5,20 +5,26 @@ const service = new BlogService()
 
 
 router.post('/new/create-post', async (req: any, res: any) => {
-    const formData = req.fields.data;
+    //Each post requires a user id
+    const formData = req.fields;
     let newPost;
-    !formData && console.log('Error receiving form data');
-    !formData && res.send('Error receiving form data');
-    await service.createPost(formData).then((post: any) => newPost = post);
+    console.log('newPost formData', formData)
+    if(!formData){
+        console.log('Error receiving form data');
+        res.status(400).send('Error receiving form data')
+        return
+    }
+
+    formData&& await service.createPost(formData).then((post: any) => newPost = post);
     console.log('new post: ', newPost);
     newPost ? res.send('Post Created') : res.send('Post not created');
 })
 
 router.get('/posts/all', async (req: any, res: any) => {
     let allPosts;
-    await service.getAllPosts().then((posts: any) => allPosts = posts);
+    allPosts= await service.getAllPosts();
     console.log('all posts: ', allPosts);
-    allPosts ? res.send(allPosts) : res.send('Error getting posts');
+    res.send(allPosts)
 })
 
 router.get('/post/single/:id', async (req: any, res: any) => {
@@ -44,6 +50,14 @@ router.get('/post/category/:id', async (req: any, res: any) => {
     await service.getPostsByCategory(id).then((posts: any) => postsByCategory = posts);
     console.log('posts by category: ', postsByCategory);
     postsByCategory ? res.send(postsByCategory) : res.send('Error getting posts');
+})
+
+router.get('/post/slug/:slug', async (req: any, res: any) => {
+    const {slug} = req.params;
+    let postBySlug;
+    await service.getPostBySlug(slug).then((post: any) => postBySlug = post);
+    console.log('post by slug: ', postBySlug);
+    postBySlug ? res.send(postBySlug) : res.send('Error getting post');
 })
 
 router.get('/post/tag/:tag', async (req: any, res: any) => {

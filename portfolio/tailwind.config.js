@@ -6,9 +6,9 @@ module.exports = {
             colors: {
                 'regal-blue': '#243c5a', 'paper-white': '#ffffff', 'paper-black': '#020a17'
             }, fontFamily: {
-                'cursive': ['Sacramento', 'cursive'],
                 'paragraph': ['Nixie One', 'cursive'],
                 'paper': ['Inconsolata', 'monospace'],
+                'cursive': ['Sacramento', 'cursive'],
             }, keyframes: {
                 'swing': {
                     '0%': {transform: 'rotate(13deg)'}, '100%': {transform: 'rotate(-13deg)'},

@@ -1,12 +1,22 @@
-import useAuth from "../../utils/AuthHook";
+// import useAuth from "../../utils/AuthHook";
+
+
+import {useContext} from "react";
+import Auth1Context from "../../context/Auth1Context";
 
 
 const Logout= () => {
-    const context = useAuth();
-    const logOut= context.logOut()
+    let context= useContext(Auth1Context);
+
+
+
+
+    const handleClick= () => {
+        context.logOut().then(r => r)
+    }
     return (
         <button
-        onClick={() => logOut}>
+        onClick={handleClick}>
         Log Out
         </button>
     );

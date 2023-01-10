@@ -1,7 +1,9 @@
 // import Background from "../Background";
 import {Link} from "react-router-dom";
 import Logout from "./Logout";
-import useAuth from "../../utils/AuthHook";
+import {useContext} from "react";
+import Auth1Context from "../../context/Auth1Context";
+// import useAuth from "../../utils/AuthHook";
 // import {useEffect, useState} from "react";
 
 // import LoginButton from "./LoginButton";
@@ -9,7 +11,7 @@ import useAuth from "../../utils/AuthHook";
 const NavSection= ()=>{
 
     // const [loggedIn, setLoggedIn] = useState(false);
-    const{isAuthenticated}:any= useAuth();
+    const{isAuthenticated}:any= useContext(Auth1Context);
 
     const NavData=[
         {

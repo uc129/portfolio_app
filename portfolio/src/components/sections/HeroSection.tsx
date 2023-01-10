@@ -3,7 +3,13 @@
 
 import {Toolbar} from "../Toolbar";
 
+
 const HeroSection = () => {
+
+
+
+
+
     const typeWriter = (text: string, i: number, fnCallback: any) => {
         if (i < (text.length)) {
             // @ts-ignore
@@ -33,6 +39,7 @@ const HeroSection = () => {
     let tools =[{name:'Profile', link:'/profile'},{name:'News', link:'/news'}]
     return (
         <>
+
             <Toolbar tools={tools}/>
         <div className={'grid grid-rows-2 grid-cols-8 bg-clip-content hero-section'}>
             {/*<Background/>*/}

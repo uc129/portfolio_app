@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import axios, {AxiosResponse} from "axios";
-import useAuth from "../utils/AuthHook";
+import Auth1Context from "../context/Auth1Context";
+// import useAuth from "../utils/AuthHook";
 
 
 interface CustomFormProps {
@@ -42,8 +43,8 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
 
     const [formData, setFormData] = useState({} as formDataInterface);
     const [state, setState] = useState({errors: {} as formErrorInterface})
-    const context = useAuth();
-    console.log('context', context);
+    const context = useContext(Auth1Context)
+    // console.log('context', context);
     const handleChange = (event: any) => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -72,13 +73,13 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
                 retrieveFormData(formData)
             }
             if (type === 'login') {
-                context.logIn(formData.email, formData.password)
+                context.logIn(formData.email as string, formData.password as string)
                     .then((res: any) => console.log('login context res: ',res))
                 console.log('login type')
             }
             if (type === 'register' || type === 'signup') {
                 context.register(formData).then((res: any) => console.log('register context res: ',res))
-                console.log('register type')
+                console.log(type)
 
             }
             console.log('data',formData)
@@ -96,7 +97,7 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
     const formFields = fields.map((field: CustomFormField, index: any) => {
         if (field.type === 'submit') {
             submitText = field.value;
-            return <></>
+            return <span key={index}></span>
         } else if (field.type === 'text' || field.type === 'email' || field.type === 'password' || field.type === 'textarea') {
             return <div key={index} className="form-input-group border-black border-r">
                 <label key={field.name} htmlFor={field.name}>{field.name}</label>

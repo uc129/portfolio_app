@@ -17,12 +17,13 @@ if (req.headers.authorization && req.headers.authorization.startsWith('Bearer'))
     } catch (error) {
         console.error(error)
         res.status(401).send('Not Authorized')
-        throw new Error('Not authorized')
+        return
     }
 }
     else if (!token) {
+        console.error('Not Authorized, no token')
         res.status(401).send('Not Authorized, no token')
-        throw new Error('Not authorized, no token')
+        return
     }
 
 })

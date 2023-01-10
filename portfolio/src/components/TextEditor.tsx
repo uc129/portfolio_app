@@ -11,14 +11,13 @@ import SubScript from '@tiptap/extension-subscript';
 import {Color} from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
 import {IconColorPicker} from "@tabler/icons";
-import {useEffect, useState} from "react";
-import axios from "axios";
+
 
 const content = '<p>Start editing me! <a href="https://mantine.dev">Mantine</a></p>';
 
-function TextEditor({pushLink}: any) {
-    const [editorData, setEditorData] = useState();
-    const [save, setSave] = useState(false);
+function TextEditor({retrieveEditorClient}: any) {
+
+
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -33,17 +32,10 @@ function TextEditor({pushLink}: any) {
         ],
         content,
     });
-    const handleClick=()=>{
-        setSave(true)
-        // @ts-ignore
-        setEditorData(editor?.getHTML())
-    }
-    useEffect(() => {
-        // @ts-ignore
-            save && editorData && axios.post(pushLink, {data: editorData}).then(r => console.log(r))
-            setSave(false)
 
-    }, [editorData,save])
+    retrieveEditorClient(editor)
+
+
     return (
         <>
         <RichTextEditor editor={editor} style={{height:'400px',background:'white', maxHeight:'400px'}}>
@@ -121,9 +113,12 @@ function TextEditor({pushLink}: any) {
 
         </RichTextEditor>
             {/*@ts-ignore*/}
-            <button onClick={()=> handleClick()} >Save</button>
+
     </>
     );
+
+
+
 }
 
 export default TextEditor

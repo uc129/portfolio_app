@@ -34,7 +34,7 @@ let tools=[{name:'Work 1', link:'/work1'},{name:'Work 2', link:'/work-2'}]
                 {/*// @ts-ignore*/}
                 {projects?.map((project:any,index:number)=>{
 
-                        if (index>4) return <></>
+                        if (index>4) return <span key={index}></span>
                         return <ProjectCard key={index} project={project} size={'small'}/>
 
 

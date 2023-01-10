@@ -1,22 +1,8 @@
 import {Post} from "../database/models/blog.model";
-import jwt from "jsonwebtoken";
-
 class BlogService {
-
-  constructor() {
-
-  }
-  generateToken = async (id:any) => {
-    return jwt.sign(id, process.env.JWT_SECRET as string, {
-      algorithm: "HS256",
-      expiresIn: "30d",
-    })
-  }
-
-
    getAllPosts=async()=> {
     let allPosts;
-    await Post.find().then((posts: any) => allPosts = posts);
+        await Post.find().then((posts: any) => allPosts = posts);
      return allPosts;
   }
  getPostById= async (id: any)=> {
@@ -24,7 +10,6 @@ class BlogService {
    await Post.findById(id).then((post: any) => singlePost = post);
     return singlePost
   }
-
    getPostsByUser= async(userId: any)=> {
     let postsByUser;
     await Post.find({ owner: userId }).then((posts: any) => postsByUser = posts);
@@ -37,6 +22,12 @@ class BlogService {
     return postsByCategory;
   }
 
+  getPostBySlug= async(slug: any)=> {
+    let postBySlug;
+    await Post.findOne({ slug: slug }).then((post: any) => postBySlug = post);
+    return postBySlug;
+  }
+
   getPostsByTag= async(tag: string)=> {
     let postsByTag;
     await Post.find({ tags: tag }).then((posts: any) => postsByTag = posts);
@@ -44,9 +35,28 @@ class BlogService {
   }
 
   createPost= async(postData: any)=> {
+      //Each post requires a user id
     let newPost
-    await Post.create(postData).then((post: any) => newPost = post);
-    return newPost;
+      console.log('postData',postData)
+        const {title,description, content, categories, tags, ownerID,slug} = postData;
+        const newPostData = {
+            title,
+            description,
+            content,
+            categories,
+            tags,
+            authorID:ownerID,
+            slug
+        }
+        try{
+            postData && await Post.create(newPostData).then((post: any) => newPost = post);
+        }
+        catch (e) {
+            console.log('Error creating post', e)
+        }
+        console.log('new post: ', newPost);
+        return newPost;
+
   }
 
    updatePost= async(id: any, postData: any)=> {
