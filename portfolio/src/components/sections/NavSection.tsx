@@ -1,6 +1,6 @@
 // import Background from "../Background";
 import {Link} from "react-router-dom";
-import Logout from "./Logout";
+import LogoutButton from "./LogoutButton";
 import {useContext} from "react";
 import Auth1Context from "../../context/Auth1Context";
 // import useAuth from "../../utils/AuthHook";
@@ -38,6 +38,14 @@ const NavSection= ()=>{
             name: 'Login',
             link: '/blog/login'
         },
+        {
+            name:'Profile',
+            link:'/profile'
+        },
+        {
+            name: 'Edit Profile',
+            link: '/profile/update-profile'
+        },
 
     //     sing up,login links are sent through BlogSection
     ]
@@ -48,7 +56,7 @@ const NavSection= ()=>{
             {NavData.map((item,index)=>{
                 return   <Link className={'mt-2 underline hover:translate-y-0.5 hover:text-blue-400'} key={index} to={item.link}>{item.name}</Link>
             })}
-            {isAuthenticated && <Logout/>}
+            {isAuthenticated && <LogoutButton/>}
 
         </div>
     )

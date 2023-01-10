@@ -9,10 +9,10 @@ if (req.headers.authorization && req.headers.authorization.startsWith('Bearer'))
     try {
         token = req.headers.authorization.split(' ')[1]
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string)
-        console.log('decoded',decoded)
+        // console.log('decoded',decoded)
         // @ts-ignore
         req.user = await User.findById(decoded.id).select('-password') // exclude the password from response
-        console.log('req.user',req.user)
+        // console.log('req.user',req.user)
         next()
     } catch (error) {
         console.error(error)

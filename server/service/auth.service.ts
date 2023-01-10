@@ -28,7 +28,7 @@ export default class AuthService{
     async loginfn(formData: any) {
         // let check = checkAuth();
         const {email,password}=formData
-        const user=await User.findOne({email:email})
+        const user=await User.findOne({email:email}).then(res=>res)
         console.log('found user',user)
         if(!user) this.error='Login: User not found'
         else if (user && user.password) {
@@ -41,7 +41,7 @@ export default class AuthService{
             return {error: this.error}
         }
         else
-            return {token:this.token, user:{id:user?.id,name:user?.name}, login:this.compare};
+            return {token:this.token, user:{id:user?.id,name:user?.name,email:user?.email}, login:this.compare};
     }
 
     hashPassword = async (password: string) => {

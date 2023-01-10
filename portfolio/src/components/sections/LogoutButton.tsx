@@ -5,7 +5,7 @@ import {useContext} from "react";
 import Auth1Context from "../../context/Auth1Context";
 
 
-const Logout= () => {
+const LogoutButton= () => {
     let context= useContext(Auth1Context);
 
 
@@ -16,10 +16,12 @@ const Logout= () => {
     }
     return (
         <button
-        onClick={handleClick}>
+        onClick={handleClick}
+        className={'mt-2 underline hover:translate-y-0.5 hover:text-blue-400'}
+        >
         Log Out
         </button>
     );
 }
 
-export default Logout
+export default LogoutButton

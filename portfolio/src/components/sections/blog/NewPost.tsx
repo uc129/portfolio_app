@@ -1,10 +1,12 @@
 
-import TextEditor from "../../TextEditor";
+
 import {useContext, useEffect, useState} from "react";
 import axios from "axios";
-import PopUpForm from "../../PopUpForm";
-import {CustomFormField} from "../../customForm";
+
 import Auth1Context from "../../../context/Auth1Context";
+import {CustomFormField} from "../../utils/customForm";
+import TextEditor from "../../utils/TextEditor";
+import PopUpForm from "../../utils/PopUpForm";
 const NewPost = () => {
     const [meta, setMeta] = useState(false);
     const [save, setSave] = useState(false);

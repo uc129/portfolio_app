@@ -1,9 +1,4 @@
-/** @format */
-
-import CustomForm, {CustomFormField} from '../customForm';
-
-
-
+ import CustomForm, {CustomFormField} from "../utils/customForm";
 
 export const SignupSection = () => {
   const form_fields: CustomFormField[] = [

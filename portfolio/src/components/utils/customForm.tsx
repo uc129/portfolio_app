@@ -1,6 +1,7 @@
 import React, {useContext, useState} from "react";
 import axios, {AxiosResponse} from "axios";
-import Auth1Context from "../context/Auth1Context";
+import Auth1Context from "../../context/Auth1Context";
+
 // import useAuth from "../utils/AuthHook";
 
 
@@ -80,10 +81,10 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
             if (type === 'register' || type === 'signup') {
                 context.register(formData).then((res: any) => console.log('register context res: ',res))
                 console.log(type)
-
             }
             console.log('data',formData)
             alert("Form submitted");
+            window.location.reload()
         } else if (!handleValidation()) alert("Form has errors.")
 
     }
@@ -103,8 +104,11 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
                 <label key={field.name} htmlFor={field.name}>{field.name}</label>
                 {state.errors[field.name] &&
                     <span key={'error ' + index} className="error text-xs ">{state.errors[field.name]}</span>}
-                <input key={field.placeholder} className={setErrorClass(field.name)} type={field.type} name={field.name}
+                {field.value ?  <input value={field.value} key={'field.placeholder'+index} className={setErrorClass(field.name)} type={field.type} name={field.name}
                        placeholder={field.placeholder || ''} onChange={(e: any) => handleChange(e)}/>
+                :<input key={'field.placeholder'+index} className={setErrorClass(field.name)} type={field.type} name={field.name}
+                        placeholder={field.placeholder || ''} onChange={(e: any) => handleChange(e)}/>
+                }
             </div>
         } else if (field.type === 'image') {
             return <div className="form-input-group border-black border-r" key={index}>

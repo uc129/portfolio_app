@@ -1,8 +1,10 @@
 // import Background from "../Background";
 
 
-import {Toolbar} from "../Toolbar";
 
+
+
+import {Toolbar} from "../utils/Toolbar";
 
 const HeroSection = () => {
 

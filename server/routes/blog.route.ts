@@ -23,7 +23,7 @@ router.post('/new/create-post', async (req: any, res: any) => {
 router.get('/posts/all', async (req: any, res: any) => {
     let allPosts;
     allPosts= await service.getAllPosts();
-    console.log('all posts: ', allPosts);
+    // console.log('all posts: ', allPosts);
     res.send(allPosts)
 })
 

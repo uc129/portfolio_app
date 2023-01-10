@@ -1,10 +1,10 @@
 
 // noinspection SpellCheckingInspection
 
-import {urlFor} from "../lib/sanity.imageurl";
+
+import {urlFor} from "../../../lib/sanity.imageurl";
+
 export const ProjectCard=({project,size}:any)=>{
-
-
 
     const small =
         <div className={'grid grid-rows-7 max-w-xs bg-gray-600 bg-opacity-20 border-2 p-2 break-words z-10'}>

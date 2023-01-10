@@ -1,8 +1,11 @@
 import { ProjectCard } from "./ProjectCard";
 import {useEffect, useState} from "react";
-import sanityClient from "../lib/sanity.client";
+
 import {useParams} from "react-router-dom";
-import {Toolbar} from "./Toolbar";
+
+import sanityClient from '../../../lib/sanity.client';
+import {Toolbar} from "../../utils/Toolbar";
+
 const Project= () => {
 
 
@@ -12,8 +15,7 @@ const Project= () => {
     const {slug} = useParams();
     const [projects, setProjects] = useState([]);
     useEffect( () => {
-        sanityClient
-            .fetch(`*[_type == "projects"]`)
+        sanityClient.fetch(`*[_type == "projects"]`)
             .then((data) => setProjects(data))
             .catch(console.error);
     }, []);

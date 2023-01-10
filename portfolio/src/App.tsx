@@ -2,19 +2,24 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Route,BrowserRouter as Router, Routes} from 'react-router-dom';
 import './App.css';
 //
-import Layout from "./components/Layout";
+
 import HeroSection from "./components/sections/HeroSection";
-import {BlogSection} from "./components/sections/BlogSection";
-import {Post} from './components/Post';
+
 import {WorksSection} from "./components/sections/WorksSection";
-import Project from "./components/Project";
+
 import {ContactSection} from "./components/sections/ContactSection";
 import {SignupSection} from "./components/sections/SignupSection";
-import NewPost from "./components/sections/Blog/NewPost";
-import Login from "./components/sections/Login";
+import NewPost from "./components/sections/blog/NewPost";
+import LoginSection from "./components/sections/LoginSection";
 // import useAuth from "./utils/AuthHook";
 import {Auth1Context, Auth1ContextProvider} from "./context/Auth1Context";
 import axios from "axios";
+import UpdateProfile from "./components/sections/profile/UpdateProfile";
+import Profile from "./components/sections/profile/Profile";
+import {BlogSection} from "./components/sections/blog/BlogSection";
+import {Post} from "./components/sections/blog/Post";
+import Project from "./components/sections/projects/Project";
+import Layout from "./components/utils/Layout";
 
 // let logoutTimer: string | number | NodeJS.Timeout | undefined;
 
@@ -63,8 +68,11 @@ function App() {
                     <Route path={'/works/projects/:slug'} element={<Project />} />
                     <Route path={'/contact-me'} element={<ContactSection />} />
                     <Route path={'/blog/signup'} element={isAuthenticated? hero:<SignupSection/>} />
-                    <Route path={'/blog/login'} element={isAuthenticated? hero:<Login/>} />
+                    <Route path={'/blog/login'} element={isAuthenticated? hero:<LoginSection/>} />
                     <Route path={'/blog/create-post'} element={ isAuthenticated? <NewPost/>: blog}  />
+                    <Route path={'/profile/'} element={ isAuthenticated? <Profile/>: blog}  />
+                    <Route path={'/profile/update-profile'} element={ isAuthenticated? <UpdateProfile/>: blog}  />
+
                 </Routes>
             </Layout>
             </Auth1ContextProvider>

@@ -1,9 +1,11 @@
 import {useEffect, useState} from "react";
 
 import sanityClient from "../../lib/sanity.client";
-import {Loading} from "./Loading";
-import {ProjectCard} from "../ProjectCard";
-import {Toolbar} from "../Toolbar";
+import {LoadingSection} from "./LoadingSection";
+
+
+import {ProjectCard} from "./projects/ProjectCard";
+import {Toolbar} from "../utils/Toolbar";
 
 
 export const WorksSection=()=>{
@@ -30,7 +32,7 @@ let tools=[{name:'Work 1', link:'/work1'},{name:'Work 2', link:'/work-2'}]
             <p className={' px-6'}>Here are some of my works</p>
         <div className={'flex justify-between'}>
             <div className={'py-12 pl-4 flex flex-wrap gap-6'}>
-                {!projects&&  <Loading/>}
+                {!projects&&  <LoadingSection/>}
                 {/*// @ts-ignore*/}
                 {projects?.map((project:any,index:number)=>{
 

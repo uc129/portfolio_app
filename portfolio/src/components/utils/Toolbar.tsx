@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import Auth1Context from "../context/Auth1Context";
+import Auth1Context from "../../context/Auth1Context";
+
 
 export function Toolbar({tools}:any) {
 

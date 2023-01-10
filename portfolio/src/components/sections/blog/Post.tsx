@@ -3,8 +3,10 @@ import {BlogPostCard} from "./BlogPostCard";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {Toolbar} from "./Toolbar";
-import {Loading} from "./sections/Loading";
+import {LoadingSection} from "../LoadingSection";
+import {Toolbar} from "../../utils/Toolbar";
+
+
 
 export const Post=()=>{
     const {slug} = useParams();
@@ -36,19 +38,16 @@ export const Post=()=>{
         getPost().then(r => console.log('post', Post,r))
     },[])
 
-    const card =<div className={'grid grid-rows-2 grid-cols-8 w-screen '}>
+    const card =<div className={'grid grid-rows-2 grid-cols-8 w-screen h-full bg-amber-400 '}>
         <h1 className={'row-end-1 col-start-4 col-end-5 py-4'}>Blog</h1>
         <div  className={'row-end-2 col-start-1 col-end-4 py-4'}>
-            <h1>{Post?.title}</h1>
-            <p>{Post?.date}</p>
-            <p>{Post?.Icon}</p>
-            <p>{Post?.content}</p>
+            <BlogPostCard size={'large'} post={Post}/>
         </div>
 
         <div className={' row-end-2 col-start-7 col-end-8 recent-posts w-1/4 -m-8'}>
             <h1>Recent Posts</h1>
             <div className={'flex flex-col'}>
-                <BlogPostCard post={Post} size={'large'} key={Post.id}/>
+                <BlogPostCard post={Post} size={'small'} key={Post.id}/>
             </div>
         </div>
     </div>
@@ -56,7 +55,7 @@ export const Post=()=>{
     return(
         <>
             <Toolbar/>
-            {loading ? <Loading/> : card}
+            {loading ? <LoadingSection/> : card}
             </>
 
     )

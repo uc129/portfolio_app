@@ -1,6 +1,8 @@
-import NavSection from "./sections/NavSection";
-import FooterSection from "./sections/FooterSection";
+
 // import Background from "./Background";
+import NavSection from "../sections/NavSection";
+import FooterSection from "../sections/FooterSection";
+
 const Layout=({children}:any,)=>{
     return (
         <div>
