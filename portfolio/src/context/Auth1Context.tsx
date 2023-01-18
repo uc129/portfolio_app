@@ -2,7 +2,7 @@ import {createContext, useEffect, useState} from "react";
 import axios from "axios";
 
 
-interface Auth1ContextType {
+export interface Auth1ContextType {
     checkAuth: () => boolean;
     isAuthenticated: boolean;
     logIn: (email: string, password: string) => Promise<any>;

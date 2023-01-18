@@ -13,11 +13,9 @@ import TextStyle from '@tiptap/extension-text-style';
 import {IconColorPicker} from "@tabler/icons";
 
 
-const content = '<p>Start editing me! <a href="https://mantine.dev">Mantine</a></p>';
-
-function TextEditor({retrieveEditorClient}: any) {
 
 
+function TextEditor({retrieveEditorClient,retrieveEditorData, content}: any) {
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -30,16 +28,17 @@ function TextEditor({retrieveEditorClient}: any) {
             Highlight,
             TextAlign.configure({types: ['heading', 'paragraph']}),
         ],
-        content,
+       content:content,
     });
 
-    retrieveEditorClient(editor)
+    retrieveEditorClient && retrieveEditorClient(editor)
+    retrieveEditorData&& retrieveEditorData(editor?.getHTML())
 
 
     return (
         <>
-        <RichTextEditor editor={editor} style={{height:'400px',background:'white', maxHeight:'400px'}}>
-            <RichTextEditor.Toolbar sticky stickyOffset={60} >
+        <RichTextEditor editor={editor} >
+            <RichTextEditor.Toolbar  stickyOffset={60} >
                 <RichTextEditor.ColorPicker
                     colors={[
                         '#25262b',

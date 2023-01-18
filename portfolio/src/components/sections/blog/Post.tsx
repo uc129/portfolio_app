@@ -1,10 +1,11 @@
-// import {Posts} from "../data/BlogData";
-import {BlogPostCard} from "./BlogPostCard";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {LoadingSection} from "../LoadingSection";
-import {Toolbar} from "../../utils/Toolbar";
+
+import {Toolbar} from "../../Toolbar";
+import {BlogPostCard} from "./BlogPostCard";
+
 
 
 
@@ -36,7 +37,7 @@ export const Post=()=>{
 
     useEffect(() => {
         getPost().then(r => console.log('post', Post,r))
-    },[])
+    })
 
     const card =<div className={'grid grid-rows-2 grid-cols-8 w-screen h-full bg-amber-400 '}>
         <h1 className={'row-end-1 col-start-4 col-end-5 py-4'}>Blog</h1>
@@ -52,9 +53,14 @@ export const Post=()=>{
         </div>
     </div>
 
+    const tools=[{
+        'name': 'Edit Post',
+        'link': '/blog/post/edit/'+Post.id,
+    }]
+
     return(
         <>
-            <Toolbar/>
+            <Toolbar tools={tools}/>
             {loading ? <LoadingSection/> : card}
             </>
 

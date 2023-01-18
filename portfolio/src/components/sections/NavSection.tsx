@@ -46,6 +46,26 @@ const NavSection= ()=>{
             name: 'Edit Profile',
             link: '/profile/update-profile'
         },
+        {
+            name: 'Manage Posts',
+            link: '/blog/manage-posts'
+        },
+        {
+            name: 'Edit Post',
+            link: '/blog/edit-post'
+        },
+        {
+            name: 'Logout',
+            link: '/blog/logout'
+        },
+        {
+            name: 'Books Library',
+            link: '/interests/reading/library'
+        },
+        {
+            name: 'Music Library',
+            link: '/interests/music/library'
+        }
 
     //     sing up,login links are sent through BlogSection
     ]

@@ -35,7 +35,7 @@ const NewPost = () => {
         setMeta(true)
     }
 
-    const metaFormFields:CustomFormField[] = [
+     const metaFormFields:CustomFormField[] = [
         {
             name: 'title',
             type: 'text',
@@ -92,7 +92,11 @@ const NewPost = () => {
         }
         setSave(false)
 
-    }, [editorData,save,metaData])
+    }, [editorData,save,metaData,context.user,editor])
+
+
+
+
     return (<div className={'container p-4'}>
             <h1 className={'text-center'}>New Post</h1>
             <div className={'h-96'}>

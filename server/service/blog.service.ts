@@ -1,4 +1,5 @@
 import {Post} from "../database/models/blog.model";
+
 class BlogService {
    getAllPosts=async()=> {
     let allPosts;
@@ -7,7 +8,7 @@ class BlogService {
   }
  getPostById= async (id: any)=> {
     let singlePost;
-   await Post.findById(id).then((post: any) => singlePost = post);
+    id &&await Post.findById(id).then((post: any) => singlePost = post).catch((err: any) => console.log('Error getting post by id: ', err));
     return singlePost
   }
    getPostsByUser= async(userId: any)=> {
@@ -59,9 +60,11 @@ class BlogService {
 
   }
 
-   updatePost= async(id: any, postData: any)=> {
+   updatePost= async(_id: any, postData: any)=> {
     let updatedPost;
-    await Post.findByIdAndUpdate(id, postData).then((post: any) => updatedPost = post);
+    let {title} = postData;
+       postData.slug=title.toLowerCase().replace(/ /g, '-');
+    await Post.findByIdAndUpdate(_id, postData).then((post: any) => updatedPost = post);
     return updatedPost;
   }
 

@@ -4,8 +4,11 @@ import sanityClient from "../../lib/sanity.client";
 import {LoadingSection} from "./LoadingSection";
 
 
-import {ProjectCard} from "./projects/ProjectCard";
-import {Toolbar} from "../utils/Toolbar";
+// import {ProjectCard} from "./projects/ProjectCard";
+// import {Toolbar} from "../utils/Toolbar";
+import {Toolbar} from "../Toolbar";
+import {ProjectCard} from "../ProjectCard";
+
 
 
 export const WorksSection=()=>{

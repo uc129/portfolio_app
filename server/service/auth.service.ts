@@ -1,12 +1,15 @@
 
 import {User} from "../database/models/userSchema";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const dotenv = require("dotenv")
+dotenv.config()
 
 export default class AuthService{
     private error: string | undefined;
     private new_user: any;
     private token:any
+    // @ts-ignore
     private compare: boolean;
 
     constructor() {
@@ -80,6 +83,7 @@ export default class AuthService{
             res.json({logout:true})
             console.log('logout: true')
         } catch (error) {
+            console.log('logout error',error)
             res.json(error)
         }
     }

@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
-
+const dotenv = require("dotenv")
+dotenv.config()
 
 let dbConfig = {
-    URL:'mongodb+srv://uc129:mongo@cluster0.fvxgr2p.mongodb.net/?retryWrites=true&w=majority',
+    URL:process.env.MONGO_URI as string,
     // URL:'mongodb://docker:mongopw@localhost:55000',
     DB:'uc129',
 };
-
+console.log('dbConfig: ', dbConfig);
 export const connectDB = () => {
     mongoose.set('strictQuery', true)
     mongoose

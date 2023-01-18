@@ -24,9 +24,7 @@ router.get('/get-user', async (req: any, res: any) => {
 })
 
 router.post('/logout', async (req: any, res: any) => {
-    req.user=null;
-    console.log('logout: true; user: ',req.user)
-    res.json({logout:true})
+    await service.logout(req, res);
 });
 
 module.exports = router;

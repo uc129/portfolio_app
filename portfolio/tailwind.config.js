@@ -26,7 +26,10 @@ module.exports = {
                 'skew': 'skew 1s ease-in-out alternate infinite',
             },
 
+
             plugins: [],
         }
+
     }
+
 }

@@ -4,7 +4,8 @@
 
 
 
-import {Toolbar} from "../utils/Toolbar";
+
+import {Toolbar} from "../Toolbar";
 
 const HeroSection = () => {
 
@@ -45,7 +46,7 @@ const HeroSection = () => {
             <Toolbar tools={tools}/>
         <div className={'grid grid-rows-2 grid-cols-8 bg-clip-content hero-section'}>
             {/*<Background/>*/}
-            <div className={'flex flex-col row-start-1 col-start-4 col-end-8 py-6'}>
+            <div className={'flex flex-col row-start-1 col-start-3 col-span-4 py-6'}>
                     <h1 className={'text-6xl text-center hero-heading font-cursive '}> Hi, <br/> I'm Utkarsh(Kash), <br/> Web Developer</h1>
                     <p className={'text-amber-700 font-cursive '}> Full Stack Developer </p>
                     <button className={'mx-auto w-max  p-2 hover:text-bold font-cursive '}>

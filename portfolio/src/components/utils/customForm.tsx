@@ -84,7 +84,7 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
             }
             console.log('data',formData)
             alert("Form submitted");
-            window.location.reload()
+            // window.location.reload()
         } else if (!handleValidation()) alert("Form has errors.")
 
     }
@@ -100,14 +100,16 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
             submitText = field.value;
             return <span key={index}></span>
         } else if (field.type === 'text' || field.type === 'email' || field.type === 'password' || field.type === 'textarea') {
-            return <div key={index} className="form-input-group border-black border-r">
-                <label key={field.name} htmlFor={field.name}>{field.name}</label>
-                {state.errors[field.name] &&
-                    <span key={'error ' + index} className="error text-xs ">{state.errors[field.name]}</span>}
-                {field.value ?  <input value={field.value} key={'field.placeholder'+index} className={setErrorClass(field.name)} type={field.type} name={field.name}
-                       placeholder={field.placeholder || ''} onChange={(e: any) => handleChange(e)}/>
-                :<input key={'field.placeholder'+index} className={setErrorClass(field.name)} type={field.type} name={field.name}
-                        placeholder={field.placeholder || ''} onChange={(e: any) => handleChange(e)}/>
+            return  <div key={index} className="form-input-group border-black border-r">
+                         <label key={field.name} htmlFor={field.name}>{field.name}</label>
+
+                {state.errors[field.name] && <span key={'error ' + index}
+                                                   className="error text-xs ">{state.errors[field.name]}</span>}
+
+                {field.value ?  <input value={field.value} key={'field.placeholder'+index} className={setErrorClass(field.name)}
+                                       type={field.type} name={field.name} placeholder={field.placeholder || ''} onChange={(e: any) => handleChange(e)}/>
+                    :<input key={'field.placeholder'+index} className={setErrorClass(field.name)} type={field.type}
+                               name={field.name} placeholder={field.placeholder || ''} onChange={(e: any) => handleChange(e)}/>
                 }
             </div>
         } else if (field.type === 'image') {

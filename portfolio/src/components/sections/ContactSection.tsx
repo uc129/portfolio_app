@@ -1,5 +1,6 @@
 import CustomForm, {CustomFormField} from "../utils/customForm";
-import {Toolbar} from "../utils/Toolbar";
+import {Toolbar} from "../Toolbar";
+
 
 
 export const ContactSection = () => {

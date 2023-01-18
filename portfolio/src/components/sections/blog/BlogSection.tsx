@@ -4,9 +4,12 @@
 import {useEffect, useState} from "react";
 
 import axios from "axios";
-import {BlogPostCard} from "./BlogPostCard";
-import {Toolbar} from "../../utils/Toolbar";
+
 import {LoadingSection} from "../LoadingSection";
+import RowCardSlider from "../../utils/RowCardSlider";
+
+import {Toolbar} from "../../Toolbar";
+import {BlogPostCard} from "./BlogPostCard";
 
 
 export const BlogSection = () => {
@@ -15,45 +18,49 @@ export const BlogSection = () => {
             {name: 'Log Out', link: '/blog/logout'}, {name: 'New Post', link: '/blog/create-post'},
             {name: 'Manage Posts', link: '/blog/manage-posts'}]
     const [loading, setLoading] = useState(true)
-    const [Posts, setPosts] = useState()
+    const [Posts, setPosts] = useState(undefined as any)
+    const [sliderData, setSliderData] = useState(undefined as any)
 
     const token = localStorage.getItem('token')
-    const getPosts = async () => {
-        if (token) {
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            const response = await axios.get('http://localhost:5000/api/blog/posts/all')
-                .catch(e => console.log('error', e))
-            response && setPosts(response.data)
-            response && setLoading(false)
-            return response
-        }
-        else console.log('no token')
- }
 
+    // let refreshTime= 1000 * 10  // 10 seconds
+    let refreshTime= 1000 * 4
+    const [refresh, setRefresh] = useState(true)
 
-useEffect(() => {
-    getPosts().then(r => console.log('posts', Posts, r))
-})
+    setInterval(() => {
+        !Posts && setRefresh(!refresh)
+    }, refreshTime)
 
+useEffect( () => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    console.log('token', token)
+   refresh && axios.get('http://localhost:5000/api/blog/posts/all').then(r => r.data && setPosts(r.data)).catch(e => console.log('error', e))
+    Posts && setSliderData
+    ({totalItems: Posts? Posts?.length: 0,
+        user: user? user: undefined,}
+    )
+    Posts && setLoading(false)
+},[refresh])
 
-
-
-
+    // @ts-ignore
+    const user= JSON.parse(localStorage.getItem('user'))
 
     return (
         <>
             <Toolbar tools={tools}/>
         <div className={'px-6 w-[1224px] flex-col justify-center'}>
             <h1 className={'text-center'}>Blog Section</h1>
-            <div className={'flex py-6'}>
+            {/*<div className={'flex py-6'}>*/}
+
+            {loading ?<LoadingSection/>: <RowCardSlider data={sliderData}>
                 {/*// @ts-ignore*/}
-                { loading ?<LoadingSection/>:Posts && Posts.map((post) => {
-                    return <div className="blog-section row-end-2" key={post.title}>
+                {  Posts && Posts.map((post) => {
+                    return <div className="blog-section row-end-2" key={post.title+post._id}>
                         <BlogPostCard size={'small'} post={post} key={post.id}/>
                     </div>
                 })}
-
-            </div>
+            </RowCardSlider>}
+            {/*</div>*/}
         </div>
         </>
     )

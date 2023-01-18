@@ -35,11 +35,11 @@ router.get('/post/single/:id', async (req: any, res: any) => {
     singlePost ? res.send(singlePost) : res.send('Error getting post');
 })
 
-router.get('/post/user/:id', async (req: any, res: any) => {
+router.get('/posts/user/:id', async (req: any, res: any) => {
     const {id} = req.params;
     let postsByUser;
     await service.getPostsByUser(id).then((posts: any) => postsByUser = posts);
-    console.log('post by user: ', id, ': ', postsByUser);
+    // console.log('post by user: ', id, ': ', postsByUser);
     postsByUser ? res.send(postsByUser) : res.send('Error getting posts');
 
 })
@@ -68,12 +68,15 @@ router.get('/post/tag/:tag', async (req: any, res: any) => {
     postsByTag ? res.send(postsByTag) : res.send('Error getting posts');
 })
 
-router.put('/post/update/:id', async (req: any, res: any) => {
+router.post('/post/update/:id', async (req: any, res: any) => {
     const {id} = req.params;
-    const formData = req.fields.data;
+    const formData = req.fields;
     let updatedPost;
-    !formData && console.log('Error receiving form data');
-    !formData && res.send('Error receiving form data');
+   if(!formData){
+        console.log('Error receiving form data');
+        res.status(400).send('Error receiving form data')
+        return
+   }
     await service.updatePost(id, formData).then((post: any) => updatedPost = post);
     console.log('updated post: ', updatedPost);
     updatedPost ? res.send(updatedPost) : res.send('Error updating post');

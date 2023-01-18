@@ -1,15 +1,8 @@
 
 import {useEffect, useState} from "react";
-import CustomForm, {CustomFormField} from "./customForm";
+import CustomForm from "./customForm";
 
-export interface PopUpFormProps {
-    name: string;
-    height: string;
-    width: string;
-    location: string;
-    formFields: CustomFormField[];
-    onClick: any;
-}
+
 
 const PopUpForm = ({name,formFields,openState,retrieveFormData}:any) => {
     const [opened, setOpened] = useState(true);
@@ -17,7 +10,7 @@ const PopUpForm = ({name,formFields,openState,retrieveFormData}:any) => {
     useEffect(() => {
         opened && setPopupClass('block')
         !opened && setPopupClass('hidden')
-    })
+    },[opened])
     openState(opened)
     return (
         <>

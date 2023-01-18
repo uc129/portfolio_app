@@ -81,6 +81,35 @@ body h1, h2, p, span, button, a, input{
     /*transform: scale(1.2);*/
     transform: translateY(-36px) scale(1.2);
 }
+/**/
+
+.lib-sidebar{
+
+}
+
+.lib-sidebar h1{
+    @apply font-bold text-sm underline
+}
+.lib-sidebar a{
+    @apply text-blue-200 hover:text-amber-400
+}
+.lib-sidebar button{
+    @apply text-red-300 hover:text-red-500
+}
+
+
+
+.column-slider-wrapper{
+    height: calc(100vh - 180px);
+}
+
+
+.column-slider-content{
+
+}
+
+
+
 
 /*///*/
 
