@@ -1,6 +1,6 @@
 
 import {User} from "../database/models/userSchema";
-import bcrypt = require('bcrypt');
+import bcrypt from "bcrypt";
 const jwt = require('jsonwebtoken');
 const dotenv = require("dotenv")
 dotenv.config()

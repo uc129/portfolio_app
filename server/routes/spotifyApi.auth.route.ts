@@ -2,6 +2,8 @@
 import * as querystring from "querystring";
 let client_id = 'CLIENT_ID';
 let redirect_uri = 'http://localhost:3000/callback';
+const dotenv = require('dotenv');
+dotenv.config()
 
 const router = require('express').Router();
 
@@ -23,7 +25,7 @@ router.get('/login', function(_req: any, res: { redirect: (arg0: string) => void
     res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',
-            client_id: 'a6f013d31ab14767a459eef1f324ca27',
+            client_id: process.env.SPOTIFY_CLIENT_ID as string,
             scope: scope,
             redirect_uri: redirect_uri,
             state: state
@@ -44,7 +46,7 @@ router.get('/callback', function(req: { query: { code: any; state: any; }; }, re
                 error: 'state_mismatch'
             }));
     } else {
-        let client_secret='2bc2ad53557e4b3a836d5d6c0d8c990d'
+        let client_secret=process.env.SPOTIFY_CLIENT_SECRET as string;
         let authOptions = {
             url: 'https://accounts.spotify.com/api/token',
             form: {
