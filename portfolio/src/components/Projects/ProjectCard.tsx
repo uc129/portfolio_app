@@ -4,7 +4,7 @@
 
 
 
-import {urlFor} from "../lib/sanity.imageurl";
+import {urlFor} from "../../lib/sanity.imageurl";
 
 export const ProjectCard=({project,size}:any)=>{
 

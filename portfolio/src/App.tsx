@@ -17,7 +17,7 @@ import {Post} from "./components/sections/blog/Post";
 import ManagePosts from "./components/sections/blog/ManagePosts";
 import EditPost from "./components/sections/blog/EditPost";
 import Layout from "./components/Layout";
-import Project from "./components/Project";
+import Project from "./components/Projects/Project";
 import BooksLibrary from "./components/sections/interests/Books Section/BooksLibrary";
 import MusicLibrary from "./components/sections/interests/Music Section/MusicLibrary";
 
