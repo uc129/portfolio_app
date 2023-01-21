@@ -3,8 +3,9 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {LoadingSection} from "../LoadingSection";
 
-import {Toolbar} from "../../Toolbar";
+
 import {BlogPostCard} from "./BlogPostCard";
+import {Toolbar} from "../../utils/Toolbar";
 
 
 

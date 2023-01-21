@@ -1,5 +1,5 @@
 import CustomForm, {CustomFormField} from "../utils/customForm";
-import {Toolbar} from "../Toolbar";
+import {Toolbar} from "../utils/Toolbar";
 
 
 

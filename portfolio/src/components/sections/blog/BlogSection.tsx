@@ -8,7 +8,7 @@ import axios from "axios";
 import {LoadingSection} from "../LoadingSection";
 import RowCardSlider from "../../utils/RowCardSlider";
 
-import {Toolbar} from "../../Toolbar";
+import {Toolbar} from "../../utils/Toolbar";
 import {BlogPostCard} from "./BlogPostCard";
 
 

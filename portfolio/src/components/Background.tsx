@@ -164,6 +164,9 @@ export interface BackgroundItemProps {
 const BackgroundImage = ({image, onClick, onHover}: BackgroundImageProps) => {
     return <a href={image.link}>
 
+        {/*<object key={image.url} aria-label={image.name} className={`bg-img p-4 hover:animate-swing`} draggable={false}*/}
+        {/*        data={image.url} onClick={() => onClick && onClick()} onMouseEnter={() => onHover && onHover()}/>*/}
+
         <object key={image.url} aria-label={image.name} className={`bg-img p-4 hover:animate-swing`} draggable={false}
                 data={image.url} onClick={() => onClick && onClick()} onMouseEnter={() => onHover && onHover()}/>
 
@@ -182,7 +185,9 @@ const Background = ({children}: any) => {
     //     }
     // }, [ ])
     return (<>
-        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0'}>
+        {/*<div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0'}>*/}
+        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' relative overflow-hidden'}>
+
             {art.map((image: BackgroundItemProps, index: number) => {
                 return <BackgroundImage key={index} image={image} classes={''}
                                      onClick={() => console.log(image.name)}/>

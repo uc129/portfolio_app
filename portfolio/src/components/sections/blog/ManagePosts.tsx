@@ -3,7 +3,7 @@ import {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import DeletePostButton from "./DeletePostButton";
 import ColumnSlider from "../../utils/ColumnSlider";
-import {Toolbar} from "../../Toolbar";
+import {Toolbar} from "../../utils/Toolbar";
 
 const ManagePosts = () => {
 
