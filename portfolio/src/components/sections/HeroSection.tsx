@@ -8,7 +8,6 @@
 // import {Toolbar} from "../Toolbar";
 
 import {Toolbar} from "../utils/Toolbar";
-import SvgArt from "../utils/SvgArt";
 const HeroSection = () => {
 
 
@@ -61,7 +60,6 @@ const HeroSection = () => {
                 <p id={'typewriter'} className={'text-cyan-800 font-paragraph'}></p>
             </div>
 
-            {/*<SvgArt name={'Kaali'} color={'none'} />*/}
 
 
         </div>

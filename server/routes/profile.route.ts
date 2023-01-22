@@ -13,7 +13,23 @@ router.get(`/user/:id`, async (req: any, res: any) => {
     console.log('profile: ', profile)
     profile ? res.send(profile) : res.send('Error getting profile');
 })
+router.post('/create-profile', async (req: any, res: any) => {
+    // const {userId} = req.params;
+    let formData = req.fields;
+    let user= req.user;
+    console.log('Profile formData: ', formData,user)
+    if(!formData){
+        console.log('Error receiving form data');
+        res.status(400).send('Error receiving form data')
+        return
+    }
+    let newProfile;
+    formData&& await service.createProfile(formData,user).then((profile: any) => newProfile = profile);
+    // @ts-ignore
+    console.log(newProfile);
+    newProfile? res.status(200).send('Profile Created'): res.status(400).send('Error creating profile');
 
+})
 router.post('/update-profile', async (req: any, res: any) => {
     // const {userId} = req.params;
     let formData = req.fields;

@@ -1,5 +1,6 @@
 // import Q from "q";
 // import SpotifyWebApi from "spotify-web-api-js";
+// noinspection SpellCheckingInspection
 
 // let Spotify = require('spotify-web-api-js');
 // let spotify = new Spotify();

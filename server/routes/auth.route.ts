@@ -6,7 +6,8 @@ const service = new AuthService()
 
 router.post('/register', async (req: any, res: any) => {
     const formData = req.fields;
-    !formData && (res.send('Error receiving form data') && console.log('Error receiving form data'));
+    !formData && (res.send('Error receiving form data')
+        && console.log('Error receiving form data'));
      formData && res.json( await service.signup(formData).then(res=>res));
 });
 router.post('/login', async (req: any, res: any, next: any) => {

@@ -16,7 +16,6 @@ const LoginSection = () => {
                 fields={form_fields}
                 form_title={'LoginSection Form'}
                 type={'login'}
-
             />
         )
 

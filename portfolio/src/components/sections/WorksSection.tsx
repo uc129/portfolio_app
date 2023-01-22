@@ -7,7 +7,7 @@ import {LoadingSection} from "./LoadingSection";
 // import {ProjectCard} from "./projects/ProjectCard";
 // import {Toolbar} from "../utils/Toolbar";
 import {Toolbar} from "../utils/Toolbar";
-import {ProjectCard} from "../Projects/ProjectCard";
+import {ProjectCard} from "./projects/ProjectCard";
 
 
 

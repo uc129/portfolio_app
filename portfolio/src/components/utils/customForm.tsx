@@ -12,6 +12,7 @@ interface CustomFormProps {
     form_action?: string
     retrieveAxiosData?: (data: any) => void
     retrieveFormData?: (data: any) => void
+    retrieveSuccess?: (data: any) => void
 
     //type: 'signup' | 'login' | 'logout' | 'custom'
     type?: string
@@ -40,7 +41,7 @@ interface formStringInterface {
 }
 
 
-const CustomForm = ({fields, form_title, form_method, form_action,type, retrieveAxiosData,retrieveFormData}: CustomFormProps) => {
+const CustomForm = ({fields, form_title, form_method, form_action,type, retrieveAxiosData,retrieveFormData, retrieveSuccess}: CustomFormProps) => {
 
     const [formData, setFormData] = useState({} as formDataInterface);
     const [state, setState] = useState({errors: {} as formErrorInterface})
@@ -53,7 +54,7 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
         setFormData({...formData, [name]: value});
         // setState({...state, fields: {...state.fields, [name]: value}})
     }
-    const handleSubmit = (e: React.MouseEvent<Element, MouseEvent>) => {
+    const handleSubmit =  (e: React.MouseEvent<Element, MouseEvent>) => {
         let data
         e.preventDefault();
         if (handleValidation()) {
@@ -63,7 +64,7 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
                     res.status === 200 && console.log(data);
                     alert("Form submitted");
                 }).catch((err: any) => {
-                    console.log(err)
+                    // console.log(err)
                     alert(err)
                 })
             }
@@ -75,14 +76,15 @@ const CustomForm = ({fields, form_title, form_method, form_action,type, retrieve
             }
             if (type === 'login') {
                 context.logIn(formData.email as string, formData.password as string)
-                    .then((res: any) => console.log('login context res: ',res))
-                console.log('login type')
+                    .then((res: any) => {retrieveSuccess && retrieveSuccess(res)})
+                // retrieveSuccess && retrieveSuccess(loginRes)
+                // console.log('login type')
             }
             if (type === 'register' || type === 'signup') {
-                context.register(formData).then((res: any) => console.log('register context res: ',res))
-                console.log(type)
+                context.register(formData).then((res: any) => {retrieveSuccess && retrieveSuccess(res)})
+                // retrieveSuccess && retrieveSuccess(true)
             }
-            console.log('data',formData)
+            // console.log('data', formData)
             alert("Form submitted");
             // window.location.reload()
         } else if (!handleValidation()) alert("Form has errors.")

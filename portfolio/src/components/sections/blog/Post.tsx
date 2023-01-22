@@ -6,22 +6,26 @@ import {LoadingSection} from "../LoadingSection";
 
 import {BlogPostCard} from "./BlogPostCard";
 import {Toolbar} from "../../utils/Toolbar";
+import DeletePostButton from "./DeletePostButton";
+import ColumnSlider from "../../utils/ColumnSlider";
 
 
 
 
 export const Post=()=>{
     const {slug} = useParams();
-    console.log(slug);
+    // console.log(slug);
 
     const [loading, setLoading] = useState(true)
     const [Post, setPost] = useState({
         id: '',
+        _id:'',
         title: '',
         content: '',
         date: '',
         Icon: '',
     })
+    const [AllPosts, setAllPosts] = useState()
 
     const token = localStorage.getItem('token')
     const getPost = async () => {
@@ -31,38 +35,52 @@ export const Post=()=>{
                 .catch(e => console.log('error', e))
             response && setPost(response.data)
             response && setLoading(false)
+            const allPostResponse = await axios.get('http://localhost:5000/api/blog/posts/all')
+                .catch(e => console.log('error', e))
+            allPostResponse && setAllPosts(allPostResponse.data)
             return response
         }
         else console.log('no token')
     }
 
     useEffect(() => {
-        getPost().then(r => console.log('post', Post,r))
+        loading && getPost().then(r => console.log('post', Post,r))
     })
 
-    const card =<div className={'grid grid-rows-2 grid-cols-8 w-screen h-full bg-amber-400 '}>
-        <h1 className={'row-end-1 col-start-4 col-end-5 py-4'}>Blog</h1>
-        <div  className={'row-end-2 col-start-1 col-end-4 py-4'}>
+    // @ts-ignore
+    const sliderData = {totalItems: AllPosts?.length, user: JSON.parse(localStorage.getItem('user')), height: 'h-54'}
+    const card =<div className={'flex justify-between flex-wrap w-screen h-full bg-amber-400 '}>
+
+        <h1 className={'py-4 w-full'}>Blog</h1>
+        <div  className={'w-3/5 py-4'}>
             <BlogPostCard size={'large'} post={Post}/>
+            <div className={'flex gap-4 justify-end'}>
+                <a href={'/blog/post/edit/'+Post._id}>Edit Post</a>
+                <DeletePostButton postId={Post._id}/>
+            </div>
         </div>
 
-        <div className={' row-end-2 col-start-7 col-end-8 recent-posts w-1/4 -m-8'}>
-            <h1>Recent Posts</h1>
+        <div className={' recent-posts w-2/5 -m-8'}>
+            <h1 className={'w-full'}>Recent Posts</h1>
             <div className={'flex flex-col'}>
-                <BlogPostCard post={Post} size={'small'} key={Post.id}/>
+                <ColumnSlider data={sliderData}>
+                    {/*@ts-ignore*/}
+                    {AllPosts && AllPosts.map((post:any)=><BlogPostCard key={post.id} size={'small'} post={post}/>)}
+                </ColumnSlider>
             </div>
         </div>
     </div>
 
     const tools=[{
-        'name': 'Edit Post',
-        'link': '/blog/post/edit/'+Post.id,
+        name: 'Edit Post',
+        link: '/blog/post/edit/'+Post.id,
     }]
 
     return(
         <>
             <Toolbar tools={tools}/>
             {loading ? <LoadingSection/> : card}
+
             </>
 
     )

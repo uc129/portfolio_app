@@ -6,13 +6,13 @@ class ProfileService {
         return await Profile.find({owner: id}).then((res: any) => res)
     }
 
-    async createProfile(formData: any) {
-        const {name,image, summary, owner} = formData;
+    async createProfile(formData: any, user:any) {
+        const {name,image, summary} = formData;
         const newProfileData = {
             name: name,
             image: image,
             summary: summary,
-            owner: owner
+            owner: user
         }
         return await Profile.create(newProfileData)
             .then((res: any) => res)
@@ -26,7 +26,7 @@ class ProfileService {
         console.log('Profile found : ', profile)
         if(!profile){
             console.log('No profile found, creating new profile');
-            let newProfile = await this.createProfile(formData);
+            let newProfile = await this.createProfile(formData,owner);
             return {profile:newProfile, message: 'No Profile Found! New Profile Created'}
         }
         else {

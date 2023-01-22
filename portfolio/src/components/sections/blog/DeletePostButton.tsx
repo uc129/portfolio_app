@@ -11,13 +11,13 @@ const [toDelete, setToDelete] = useState(false);
 
     useEffect(() => {
        showPopup &&  getOpenState(!showPopup)
-        console.log('show popup', showPopup)
+        // console.log('show popup', showPopup)
         const token = localStorage.getItem('token');
         token && (axios.defaults.headers.common['Authorization'] = `Bearer ${token}`);
-        console.log('to delete', toDelete)
+        // console.log('to delete', toDelete)
         toDelete &&  axios.delete(`http://localhost:5000/api/blog/post/delete/${postId}`)
-            .then(res => {
-                console.log(res)
+            .then(() => {
+                // console.log(res)
                 alert('Post Deleted')
                 window.location.reload()
             })

@@ -1,6 +1,4 @@
-import {useEffect, useState} from "react";
-
-const art: BackgroundItemProps[] = [
+export const art: BackgroundItemProps[] = [
     {
         name: 'Asset 25', url: '/assets/art/Asset 25.svg', link: '#',
     }, {
@@ -71,83 +69,83 @@ const art: BackgroundItemProps[] = [
         name: 'Yashoda-Krishna', url: '/assets/art/Yashoda-Krishna.svg', link: '#',
 
     }]
-// const art2:BackgroundItemProps[] = [
-//     {
-//         name: 'Asset 156', url: '/assets/art v2/Asset 156.svg', link: '#',
-//     }, {
-//         name: 'Asset 157', url: '/assets/art v2/Asset 157.svg', link: '#'
-//     }, {
-//         name: 'Asset 158', url: '/assets/art v2/Asset 158.svg', link: '#'
-//     }, {
-//         name: 'Asset 159', url: '/assets/art v2/Asset 159.svg', link: '#'
-//     }, {
-//         name: 'Asset 160', url: '/assets/art v2/Asset 160.svg', link: '#'
-//     }, {
-//         name: 'Asset 161', url: '/assets/art v2/Asset 161.svg', link: '#'
-//     }, {
-//         name: 'Asset 162', url: '/assets/art v2/Asset 162.svg', link: '#'
-//     }, {
-//         name: 'Asset 163', url: '/assets/art v2/Asset 163.svg', link: '#'
-//     }, {
-//         name: 'Asset 164', url: '/assets/art v2/Asset 164.svg', link: '#'
-//     }, {
-//         name: 'Asset 165', url: '/assets/art v2/Asset 165.svg', link: '#'
-//     }, {
-//         name: 'Asset 166', url: '/assets/art v2/Asset 166.svg', link: '#'
-//     }, {
-//         name: 'Asset 167', url: '/assets/art v2/Asset 167.svg', link: '#'
-//     }, {
-//         name: 'Asset 168', url: '/assets/art v2/Asset 168.svg', link: '#'
-//     }, {
-//         name: 'Asset 169', url: '/assets/art v2/Asset 169.svg', link: '#'
-//     }, {
-//         name: 'Asset 170', url: '/assets/art v2/Asset 170.svg', link: '#'
-//     }, {
-//         name: 'Asset 171', url: '/assets/art v2/Asset 171.svg', link: '#'
-//     }, {
-//         name: 'Asset 172', url: '/assets/art v2/Asset 172.svg', link: '#'
-//     }, {
-//         name: 'Asset 173', url: '/assets/art v2/Asset 173.svg', link: '#'
-//     }, {
-//         name: 'Asset 174', url: '/assets/art v2/Asset 174.svg', link: '#'
-//     }, {
-//         name: 'Asset 175', url: '/assets/art v2/Asset 175.svg', link: '#'
-//     }, {
-//         name: 'Asset 176', url: '/assets/art v2/Asset 176.svg', link: '#'
-//     }, {
-//         name: 'Asset 177', url: '/assets/art v2/Asset 177.svg', link: '#'
-//     }, {
-//         name: 'Asset 178', url: '/assets/art v2/Asset 178.svg', link: '#'
-//     }, {
-//         name: 'Asset 179', url: '/assets/art v2/Asset 179.svg', link: '#'
-//     }, {
-//         name: 'Asset 180', url: '/assets/art v2/Asset 180.svg', link: '#'
-//     }, {
-//         name: 'Asset 181', url: '/assets/art v2/Asset 181.svg', link: '#'
-//     }, {
-//         name: 'Asset 182', url: '/assets/art v2/Asset 182.svg', link: '#'
-//     }, {
-//         name: 'Asset 183', url: '/assets/art v2/Asset 183.svg', link: '#'
-//     }, {
-//         name: 'Asset 184', url: '/assets/art v2/Asset 184.svg', link: '#'
-//     }, {
-//         name: 'Asset 185', url: '/assets/art v2/Asset 185.svg', link: '#'
-//     }, {
-//         name: 'Asset 186', url: '/assets/art v2/Asset 186.svg', link: '#'
-//     }, {
-//         name: 'Asset 187', url: '/assets/art v2/Asset 187.svg', link: '#'
-//     }, {
-//         name: 'Asset 188', url: '/assets/art v2/Asset 188.svg', link: '#'
-//     }, {
-//         name: 'Asset 189', url: '/assets/art v2/Asset 189.svg', link: '#'
-//     }, {
-//         name: 'Asset 190', url: '/assets/art v2/Asset 190.svg', link: '#'
-//     }, {
-//         name: 'Asset 191', url: '/assets/art v2/Asset 191.svg', link: '#'
-//     },
-//
-//
-// ]
+export const art2:BackgroundItemProps[] = [
+    {
+        name: 'Asset 156', url: '/assets/art v2/Asset 156.svg', link: '#',
+    }, {
+        name: 'Asset 157', url: '/assets/art v2/Asset 157.svg', link: '#'
+    }, {
+        name: 'Asset 158', url: '/assets/art v2/Asset 158.svg', link: '#'
+    }, {
+        name: 'Asset 159', url: '/assets/art v2/Asset 159.svg', link: '#'
+    }, {
+        name: 'Asset 160', url: '/assets/art v2/Asset 160.svg', link: '#'
+    }, {
+        name: 'Asset 161', url: '/assets/art v2/Asset 161.svg', link: '#'
+    }, {
+        name: 'Asset 162', url: '/assets/art v2/Asset 162.svg', link: '#'
+    }, {
+        name: 'Asset 163', url: '/assets/art v2/Asset 163.svg', link: '#'
+    }, {
+        name: 'Asset 164', url: '/assets/art v2/Asset 164.svg', link: '#'
+    }, {
+        name: 'Asset 165', url: '/assets/art v2/Asset 165.svg', link: '#'
+    }, {
+        name: 'Asset 166', url: '/assets/art v2/Asset 166.svg', link: '#'
+    }, {
+        name: 'Asset 167', url: '/assets/art v2/Asset 167.svg', link: '#'
+    }, {
+        name: 'Asset 168', url: '/assets/art v2/Asset 168.svg', link: '#'
+    }, {
+        name: 'Asset 169', url: '/assets/art v2/Asset 169.svg', link: '#'
+    }, {
+        name: 'Asset 170', url: '/assets/art v2/Asset 170.svg', link: '#'
+    }, {
+        name: 'Asset 171', url: '/assets/art v2/Asset 171.svg', link: '#'
+    }, {
+        name: 'Asset 172', url: '/assets/art v2/Asset 172.svg', link: '#'
+    }, {
+        name: 'Asset 173', url: '/assets/art v2/Asset 173.svg', link: '#'
+    }, {
+        name: 'Asset 174', url: '/assets/art v2/Asset 174.svg', link: '#'
+    }, {
+        name: 'Asset 175', url: '/assets/art v2/Asset 175.svg', link: '#'
+    }, {
+        name: 'Asset 176', url: '/assets/art v2/Asset 176.svg', link: '#'
+    }, {
+        name: 'Asset 177', url: '/assets/art v2/Asset 177.svg', link: '#'
+    }, {
+        name: 'Asset 178', url: '/assets/art v2/Asset 178.svg', link: '#'
+    }, {
+        name: 'Asset 179', url: '/assets/art v2/Asset 179.svg', link: '#'
+    }, {
+        name: 'Asset 180', url: '/assets/art v2/Asset 180.svg', link: '#'
+    }, {
+        name: 'Asset 181', url: '/assets/art v2/Asset 181.svg', link: '#'
+    }, {
+        name: 'Asset 182', url: '/assets/art v2/Asset 182.svg', link: '#'
+    }, {
+        name: 'Asset 183', url: '/assets/art v2/Asset 183.svg', link: '#'
+    }, {
+        name: 'Asset 184', url: '/assets/art v2/Asset 184.svg', link: '#'
+    }, {
+        name: 'Asset 185', url: '/assets/art v2/Asset 185.svg', link: '#'
+    }, {
+        name: 'Asset 186', url: '/assets/art v2/Asset 186.svg', link: '#'
+    }, {
+        name: 'Asset 187', url: '/assets/art v2/Asset 187.svg', link: '#'
+    }, {
+        name: 'Asset 188', url: '/assets/art v2/Asset 188.svg', link: '#'
+    }, {
+        name: 'Asset 189', url: '/assets/art v2/Asset 189.svg', link: '#'
+    }, {
+        name: 'Asset 190', url: '/assets/art v2/Asset 190.svg', link: '#'
+    }, {
+        name: 'Asset 191', url: '/assets/art v2/Asset 191.svg', link: '#'
+    },
+
+
+]
 export interface BackgroundImageProps {
     image: BackgroundItemProps,
     classes?: string
@@ -188,7 +186,8 @@ const Background = ({children}: any) => {
 
 
     return (<>
-        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0'}>
+        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0' +
+            ' overflow-hidden'}>
         {/*<div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute overflow-hidden'}>*/}
 
             {art.map((image: BackgroundItemProps, index: number) => {

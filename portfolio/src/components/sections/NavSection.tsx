@@ -1,6 +1,5 @@
 // import Background from "../Background";
 import {Link} from "react-router-dom";
-import LogoutButton from "./LogoutButton";
 import {useContext} from "react";
 import Auth1Context from "../../context/Auth1Context";
 // import useAuth from "../../utils/AuthHook";
@@ -32,31 +31,34 @@ const NavSection= ()=>{
         },
         {
             name: 'Sign Up',
-            link: '/blog/signup'
+            link: '/blog/signup',
+            hidden:isAuthenticated
+
         },
         {
             name: 'Login',
-            link: '/blog/login'
+            link: '/blog/login',
+            hidden:isAuthenticated
         },
         {
             name:'Profile',
-            link:'/profile'
+            link:'/profile',
+            protected:true
         },
         {
             name: 'Edit Profile',
-            link: '/profile/update-profile'
+            link: '/profile/update-profile',
+            protected:true
         },
         {
             name: 'Manage Posts',
-            link: '/blog/manage-posts'
-        },
-        {
-            name: 'Edit Post',
-            link: '/blog/edit-post'
+            link: '/blog/manage-posts',
+            protected:true
         },
         {
             name: 'Logout',
-            link: '/blog/logout'
+            link: '/blog/logout',
+            protected:true
         },
         {
             name: 'Books Library',
@@ -72,11 +74,16 @@ const NavSection= ()=>{
 
 
     return(
-        <div className={' flex flex-col border-r-2 border-black text-sky-800 md:text-sm '}>
+        <div className={' flex flex-col border-r-2 border-black text-sky-800 text-xs '}>
             {NavData.map((item,index)=>{
-                return   <Link className={'mt-2 underline hover:translate-y-0.5 hover:text-blue-400'} key={index} to={item.link}>{item.name}</Link>
+                if(item.protected && !isAuthenticated ){
+                    return null
+                }
+                else if (!item.hidden)
+                    return   <Link className={'mt-2 underline hover:translate-y-0.5' +
+                    ' hover:text-blue-400'} key={index} to={item.link}>{item.name}</Link>
             })}
-            {isAuthenticated && <LogoutButton/>}
+            {/*{isAuthenticated && <LogoutButton/>}*/}
 
         </div>
     )

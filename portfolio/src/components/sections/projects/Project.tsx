@@ -2,8 +2,8 @@ import { ProjectCard } from "./ProjectCard";
 import {useEffect, useState} from "react";
 
 import {useParams} from "react-router-dom";
-import sanityClient from "../../lib/sanity.client";
-import {Toolbar} from "../utils/Toolbar";
+import sanityClient from "../../../lib/sanity.client";
+import {Toolbar} from "../../utils/Toolbar";
 
 
 

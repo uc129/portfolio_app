@@ -30,7 +30,7 @@ const EditPost=()=>{
     const getOldPostData = async () => {
         const response = await axios.get('http://localhost:5000/api/blog/post/single/'+post_id)
             .catch(e => console.log('error', e))
-        response && console.log('old post data',response.data)
+        // response && console.log('old post data',response.data)
         response && setOldPost(response.data)
         oldPost && setOldDataCheck(true)
         return response
@@ -58,27 +58,22 @@ const EditPost=()=>{
             categories: categories,
             tags: tags
         }
-
         const response = await axios.post('http://localhost:5000/api/blog/post/update/'+post_id, new_post_data)
             .then(r=>r)
             .catch(e=>console.log('error',e))
             response && setSave(false)
+            response && alert('Post updated successfully');
+            window.location.href = '/blog/manage-posts'
 
     }
-
     useEffect(() => {
         !editorDataCheck&& editor && oldPost && editor.commands.setContent(oldPost.content) && setEditorDataCheck(true)
        !oldDataCheck && getOldPostData().then(r => console.log('old post', oldPost,r))
         save && oldDataCheck && getNewPostData().then(r => console.log('new post',r))
     },[editorDataCheck,oldDataCheck,save])
-
-
     const getEditorData = async (data: any) => {
         setEditorData(data)
     }
-
-    console.log('editor data', editorData)
-
     const popupFormFields:CustomFormField[] = [
         {
             name: 'title',
@@ -110,14 +105,9 @@ const EditPost=()=>{
             placeholder:oldPost?.tags,
         }
     ]
-
-    console.log('form fields', popupFormFields)
-
     function handleSaveClick() {
         setSave(true)
     }
-
-    console.log('save', save)
     return (<>
 
         <div>

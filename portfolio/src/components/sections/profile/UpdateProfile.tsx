@@ -50,16 +50,16 @@ const UpdateProfile = () => {
             }
             formData.image && (newProfileData.image = formData.image)
         }
-        console.log('formData', formData)
-        console.log('new Profile',newProfileData)
-        console.log('is authenticated',isAuthenticated)
+        // console.log('formData', formData)
+        // console.log('new Profile',newProfileData)
+        // console.log('is authenticated',isAuthenticated)
         if (isAuthenticated) {
             token = localStorage.getItem('token')
-            console.log('token', token)
+            // console.log('token', token)
             token && (axios.defaults.headers.common['Authorization'] = `Bearer ${token}`);
 
             newProfileData?.name && newProfileData?.owner && axios.post('http://localhost:5000/api/profile/update-profile', newProfileData)
-                .then((res)=>console.log('Profile Create Response',res))
+                .then((res)=>console.log('Profile Update Response',res))
         }
     },[formData,context,isAuthenticated])
 

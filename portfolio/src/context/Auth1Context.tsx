@@ -20,7 +20,7 @@ const login = async (email: string, password: string) => {
                 'Content-Type': 'application/json',
             },
         });
-        console.log('login response', response);
+        // console.log('login response', response);
         if (response.data.token) {
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -41,13 +41,13 @@ const register = async (data: any) => {
                 'Content-Type': 'application/json',
             },
         });
-        console.log('register response', response);
+        // console.log('register response', response);
         if (response.data.token) {
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.user));
             localStorage.setItem('isAuthenticated', 'true');
             checkAuth()
-            window.location.reload()
+            // window.location.reload()
         }
     } catch (e) {
         console.log('register error', e);
@@ -59,7 +59,7 @@ const register = async (data: any) => {
 const logOut = async () => {
     try{
         const response = await axios.post('http://localhost:5000/api/log/logout')
-        console.log('logout response', response);
+        // console.log('logout response', response);
         if (response.data.logout) {
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
@@ -69,7 +69,7 @@ const logOut = async () => {
                 return ({logout: true})
         }
         else{
-            console.log('logout error', response.data)
+            // console.log('logout error', response.data)
             return ({logout: false})
         }
     }

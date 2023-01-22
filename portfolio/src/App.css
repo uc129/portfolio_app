@@ -15,6 +15,10 @@ body,html{
     font-family: 'Nixie One', cursive;
 }
 
+body h1, h2, p, span, button, a, input{
+    @apply font-paragraph
+}
+
 .svg-art > path {
     fill: red;
 }
@@ -22,13 +26,18 @@ body,html{
 
 
 
-h1,h2,p,span,button,a,input{
-    z-index: 100;
+h1,h2,p,span,button,a,input,tr,td,th{
+    z-index: 50;
     cursor: crosshair;
 }
+
+
 a{
     text-decoration: none;
+    @apply text-blue-900 hover:text-amber-800
 }
+
+
 /*@font-face {*/
 /*    font-family: 'Inconsolata', monospace;*/
 /*    src: local('Paper'),*/
@@ -67,17 +76,13 @@ a{
 }
 
 
-.bg-wrapper{
-    @apply animate-vertical
-}
+
 
 
 body{
-    animation: hue-rotation 10s infinite alternate linear;
+    /*animation: hue-rotation 10s infinite alternate linear;*/
 }
-body h1, h2, p, span, button, a, input{
-    @apply font-paragraph
-}
+
 .footer-section{
     /*background-size: */
     background: url('../public/assets/art/Hanuman Banner.svg') center ;
@@ -96,8 +101,11 @@ body h1, h2, p, span, button, a, input{
     @apply font-bold text-sm underline
 }
 .lib-sidebar a{
-    @apply text-blue-200 hover:text-amber-400
+    @apply text-pink-600 hover:text-emerald-900 hover:translate-x-0.5
 }
+/*.lib-sidebar div a{*/
+/*    @apply text-emerald-700 hover:text-amber-600*/
+/*}*/
 .lib-sidebar button{
     @apply text-red-300 hover:text-red-500
 }
@@ -105,6 +113,9 @@ body h1, h2, p, span, button, a, input{
 
 
 .column-slider-wrapper{
+    height: calc(100vh - 180px);
+}
+div.row-slider-content{
     height: calc(100vh - 180px);
 }
 

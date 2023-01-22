@@ -80,11 +80,11 @@ const NewPost = () => {
             const slug = title && title.split(' ').join('-')
             const content = editorData && JSON.stringify(editorData)
             const post_data = {title, description, categories, tags, content, ownerID, slug}
-            console.log('post_data', post_data)
+            // console.log('post_data', post_data)
             post_data && save && editor && editorData && metDataCheck && axios.post('http://localhost:5000/api/blog/new/create-post', post_data)
                 .then(r => r && window.location.reload())
                 .catch(e => console.log('post create error', e))
-            save && console.log('editor data', editorData)
+            // save && console.log('editor data', editorData)
 
         }
         else {

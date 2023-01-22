@@ -7,13 +7,13 @@ let dbConfig = {
     // URL:'mongodb://docker:mongopw@localhost:55000',
     DB:'uc129',
 };
-console.log('dbConfig: ', dbConfig);
+// console.log('dbConfig: ', dbConfig);
 export const connectDB = () => {
     mongoose.set('strictQuery', true)
     mongoose
         .connect(dbConfig.URL,
             (err: any) => {
-            console.error("Connection error", err);
+            // console.error("Connection error", err);
             !err && console.log("Connected to MongoDB");
             })
 }

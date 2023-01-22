@@ -8,6 +8,7 @@ export function Toolbar({tools}:any) {
 
     let context= useContext(Auth1Context);
     const [authUser, setAuthUser] = useState(null);
+    const{isAuthenticated}:any= useContext(Auth1Context);
 
     useEffect(() => {
         setAuthUser(context.user)
@@ -18,7 +19,17 @@ export function Toolbar({tools}:any) {
         <a className={'hover:translate-y-0.5 hover:text-blue-400 border-b border-black'} onClick={() => navigate(-1)}>Back</a>
         <a className={'hover:translate-y-0.5 hover:text-blue-400 border-b border-black'} onClick={() => navigate(1)}>Forward</a>
         {tools?.map((tool:any,index:any)=>{
-            if (tool.link) return <a className={'hover:translate-y-0.5 hover:text-blue-400 border-b border-black'} key={index} href={tool.link}>{tool.name}</a>
+            if (tool.link) {
+                if(tool.auth && !isAuthenticated )
+                    return null
+                else if(!tool.auth && isAuthenticated)
+                    return null
+                else
+                    return <a className={'hover:translate-y-0.5 hover:text-blue-400' +
+                    ' border-b border-black'}
+                          key={index} href={tool.link}>{tool.name}</a>
+
+            }
             return <></>
         })}</>
     let navigate = useNavigate();

@@ -11,7 +11,7 @@ const Layout=({children}:any,)=>{
         <div>
 
             <Background>
-            <div className="custom-shape-divider-top-1672748789">
+            <div className='z-50'>
 
             </div>
             <div className={'layout flex flex-wrap  border-2 border-black' +
