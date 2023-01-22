@@ -1,17 +1,14 @@
-import React from "react";
-// import Icons from "../../assets/icons/icons.svg"; // Path to your icons.svg
-import PropTypes from 'prop-types';
+import React, {useEffect} from "react";
 
-const SvgArt = ({ svg,name, color, size }:any) => (
-    <svg className={`icon icon-${name}`} fill={color} width={size} height={size}>
-        <use xlinkHref={`${svg}`} />
-    </svg>
-);
-
-SvgArt.propTypes = {
-    name: PropTypes.string.isRequired,
-    color: PropTypes.string,
-    size: PropTypes.number
-};
+const SvgArt =  ({name, color, size }:any) => {
+    const [svg, setSvg] = React.useState(null);
+    useEffect(() => {
+        const svgI = import(`../../../public/assets/art/${name}.svg`);
+        svgI.then((svg) => setSvg(svg.default))
+    })
+    return (
+        svg && React.cloneElement(svg, {color, size})
+    )
+}
 
 export default SvgArt;

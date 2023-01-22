@@ -4,12 +4,13 @@
 
 import NavSection from "./sections/NavSection";
 import FooterSection from "./sections/FooterSection";
+import Background from "./Background";
 
 const Layout=({children}:any,)=>{
     return (
         <div>
 
-            {/*<Background>*/}
+            <Background>
             <div className="custom-shape-divider-top-1672748789">
 
             </div>
@@ -30,7 +31,7 @@ const Layout=({children}:any,)=>{
                 <FooterSection/>
             </div>
         </div>
-            {/*</Background>*/}
+            </Background>
         </div>
 
     )

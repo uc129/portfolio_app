@@ -8,6 +8,7 @@
 // import {Toolbar} from "../Toolbar";
 
 import {Toolbar} from "../utils/Toolbar";
+import SvgArt from "../utils/SvgArt";
 const HeroSection = () => {
 
 
@@ -38,6 +39,7 @@ const HeroSection = () => {
     setInterval(()=>{
         type()
     },48000)
+    // {console.log(<SvgArt name={'Kaali'} color={'none'} />)}
 
 
     let tools =[{name:'Profile', link:'/profile'},{name:'News', link:'/news'}]
@@ -58,6 +60,10 @@ const HeroSection = () => {
             <div className={'text-left p-6 row-start-2 col-start-1 col-end-8'}>
                 <p id={'typewriter'} className={'text-cyan-800 font-paragraph'}></p>
             </div>
+
+            {/*<SvgArt name={'Kaali'} color={'none'} />*/}
+
+
         </div>
         </>
 

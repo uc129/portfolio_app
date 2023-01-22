@@ -15,6 +15,11 @@ body,html{
     font-family: 'Nixie One', cursive;
 }
 
+.svg-art > path {
+    fill: red;
+}
+
+
 
 
 h1,h2,p,span,button,a,input{

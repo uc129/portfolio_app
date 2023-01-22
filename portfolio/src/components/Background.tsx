@@ -1,3 +1,4 @@
+import {useEffect, useState} from "react";
 
 const art: BackgroundItemProps[] = [
     {
@@ -184,13 +185,20 @@ const Background = ({children}: any) => {
     //         document.removeEventListener('contextmenu', handleContextmenu)
     //     }
     // }, [ ])
+
+
     return (<>
-        {/*<div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0'}>*/}
-        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' relative overflow-hidden'}>
+        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0'}>
+        {/*<div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute overflow-hidden'}>*/}
 
             {art.map((image: BackgroundItemProps, index: number) => {
-                return <BackgroundImage key={index} image={image} classes={''}
+            {/*{startTimer===3 && images.map((img: any, index: number) => {*/}
+                setTimeout(() => {}, 5000)
+                return (
+
+                    <BackgroundImage key={index} image={image} classes={''}
                                      onClick={() => console.log(image.name)}/>
+                )
 
             })}
         </div>
