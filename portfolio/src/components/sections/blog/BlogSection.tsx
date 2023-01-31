@@ -13,7 +13,7 @@ import {BlogPostCard} from "./BlogPostCard";
 
 
 export const BlogSection = () => {
-
+    console.log( Math.floor(Math.random()*21))
  let tools=[{name: 'Sign Up', link: '/blog/signup',auth:false}, {name: 'Log In', link: '/blog/login',auth:false}, {name: 'New Post', link: '/blog/create-post',auth: true},
             {name: 'Manage Posts', link: '/blog/manage-posts',auth: true}, {name: 'Profile', link: '/profile',auth: true}]
     const [loading, setLoading] = useState(true)
@@ -39,7 +39,7 @@ useEffect( () => {
         user: user? user: undefined,}
     )
     Posts && setLoading(false)
-},[refresh])
+}, [refresh, Posts])
 
     // @ts-ignore
     const user= JSON.parse(localStorage.getItem('user'))

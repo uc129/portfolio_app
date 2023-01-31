@@ -1,14 +1,18 @@
 import BlogService from "../service/blog.service";
+import authMiddleware from "../utils/auth.middleware";
 
 const router = require('express').Router();
 const service = new BlogService()
 
 
-router.post('/new/create-post', async (req: any, res: any) => {
+router.post('/new/create-post',authMiddleware, async (req: any, res: any) => {
     //Each post requires a user id
     const formData = req.fields;
+    const formFiles = req.files;
+
     let newPost;
-    console.log('newPost formData', formData)
+    // console.log('newPost formData', formData)
+    console.log('newPost formFiles', formFiles)
     if(!formData){
         console.log('Error receiving form data');
         res.status(400).send('Error receiving form data')
@@ -68,7 +72,7 @@ router.get('/post/tag/:tag', async (req: any, res: any) => {
     postsByTag ? res.send(postsByTag) : res.send('Error getting posts');
 })
 
-router.post('/post/update/:id', async (req: any, res: any) => {
+router.post('/post/update/:id',authMiddleware, async (req: any, res: any) => {
     const {id} = req.params;
     const formData = req.fields;
     let updatedPost;
@@ -83,7 +87,7 @@ router.post('/post/update/:id', async (req: any, res: any) => {
 })
 
 
-router.delete('/post/delete/:id', async (req: any, res: any) => {
+router.delete('/post/delete/:id',authMiddleware, async (req: any, res: any) => {
     const {id} = req.params;
     let deletedPost;
     await service.deletePost(id).then((post: any) => deletedPost = post);

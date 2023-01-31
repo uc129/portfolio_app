@@ -29,8 +29,8 @@ export const Post=()=>{
 
     const token = localStorage.getItem('token')
     const getPost = async () => {
-        if (token && slug) {
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        if (slug) {
+            // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             const response = await axios.get('http://localhost:5000/api/blog/post/slug/'+slug)
                 .catch(e => console.log('error', e))
             response && setPost(response.data)
@@ -40,7 +40,7 @@ export const Post=()=>{
             allPostResponse && setAllPosts(allPostResponse.data)
             return response
         }
-        else console.log('no token')
+        else console.log('no slug')
     }
 
     useEffect(() => {
@@ -48,7 +48,7 @@ export const Post=()=>{
     })
 
     // @ts-ignore
-    const sliderData = {totalItems: AllPosts?.length, user: JSON.parse(localStorage.getItem('user')), height: 'h-54'}
+    // const sliderData = {totalItems: AllPosts?.length, user: JSON.parse(localStorage.getItem('user')), height: 'h-54'}
     const card =<div className={'flex justify-between flex-wrap w-screen h-full bg-amber-400 '}>
 
         <h1 className={'py-4 w-full'}>Blog</h1>
@@ -63,7 +63,8 @@ export const Post=()=>{
         <div className={' recent-posts w-2/5 -m-8'}>
             <h1 className={'w-full'}>Recent Posts</h1>
             <div className={'flex flex-col'}>
-                <ColumnSlider data={sliderData}>
+                {/*<ColumnSlider data={sliderData}>*/}
+                <ColumnSlider>
                     {/*@ts-ignore*/}
                     {AllPosts && AllPosts.map((post:any)=><BlogPostCard key={post.id} size={'small'} post={post}/>)}
                 </ColumnSlider>

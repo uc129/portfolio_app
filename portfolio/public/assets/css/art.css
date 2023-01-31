@@ -1,0 +1,28 @@
+path{
+    fill: rgba(3, 12, 26, 0.87);
+}
+path{
+    animation: color-transition 100s infinite alternate ease-in-out;
+}
+
+
+@keyframes color-transition {
+    0% {
+        fill: #000;
+    }
+    20%{
+        fill: #174242;
+    }
+    40%{
+        fill: #4cb8c4;
+    }
+    60%{
+        fill: #053746;
+    }
+    80%{
+        fill: #eb3349;
+    }
+    100% {
+        fill: #000;
+    }
+}

@@ -1,6 +1,6 @@
 
 import {User} from "../database/models/userSchema";
-import bcrypt from "bcrypt";
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const dotenv = require("dotenv")
 dotenv.config()
@@ -36,7 +36,7 @@ export default class AuthService{
         if(!user) this.error='Login: User not found'
         else if (user && user.password) {
             await bcrypt.compare(password, user.password)
-                .then((res) => (this.compare = res)).catch((err) => (this.error = 'Password error'+err));
+                .then((res: boolean) => (this.compare = res)).catch((err: string) => (this.error = 'Password error'+err));
             this.compare && (this.token = await this.generateToken({id: user.id}))
         }
         if (this.error){

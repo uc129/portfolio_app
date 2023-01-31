@@ -2,9 +2,17 @@ import React, {useContext, useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Auth1Context from "../../context/Auth1Context";
 
+export interface ToolbarTool{
+    name?:string;
+    link?:string;
+    auth?:boolean;
+}
 
+interface ToolbarProps{
+    tools?:ToolbarTool[];
+}
 
-export function Toolbar({tools}:any) {
+export function Toolbar({tools}:ToolbarProps) {
 
     let context= useContext(Auth1Context);
     const [authUser, setAuthUser] = useState(null);
@@ -18,7 +26,7 @@ export function Toolbar({tools}:any) {
     let buttons= <>
         <a className={'hover:translate-y-0.5 hover:text-blue-400 border-b border-black'} onClick={() => navigate(-1)}>Back</a>
         <a className={'hover:translate-y-0.5 hover:text-blue-400 border-b border-black'} onClick={() => navigate(1)}>Forward</a>
-        {tools?.map((tool:any,index:any)=>{
+        {tools?.map((tool:ToolbarTool,index:any)=>{
             if (tool.link) {
                 if(tool.auth && !isAuthenticated )
                     return null

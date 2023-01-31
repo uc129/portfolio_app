@@ -12,7 +12,7 @@
 /.idea
 sanity/.idea
 portfolio/.idea
-/portfolio/public
+#/portfolio/public
 
 
 # testing

@@ -57,7 +57,7 @@ function App() {
 
     return (
 
-        <Router>
+        <Router basename={'/'}>
             <Auth1ContextProvider>
             <Layout>
                 <Routes>

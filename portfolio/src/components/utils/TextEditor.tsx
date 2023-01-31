@@ -36,7 +36,7 @@ function TextEditor({retrieveEditorClient,retrieveEditorData, content}: any) {
 
 
     return (
-        <>
+        <div className={''}>
         <RichTextEditor editor={editor} >
             <RichTextEditor.Toolbar  stickyOffset={60} >
                 <RichTextEditor.ColorPicker
@@ -113,7 +113,7 @@ function TextEditor({retrieveEditorClient,retrieveEditorData, content}: any) {
         </RichTextEditor>
             {/*@ts-ignore*/}
 
-    </>
+    </div>
     );
 
 

@@ -10,7 +10,7 @@ const Layout=({children}:any,)=>{
     return (
         <div>
 
-            <Background>
+            {/*<Background>*/}
             <div className='z-50'>
 
             </div>
@@ -27,11 +27,11 @@ const Layout=({children}:any,)=>{
                     {children}
                 </div>
                 {/*//Footer*/}
-            <div className={' w-screen h-[14vh] pb-10 '}>
+            <div className={' w-screen h-1  '}>
                 <FooterSection/>
             </div>
         </div>
-            </Background>
+            {/*</Background>*/}
         </div>
 
     )

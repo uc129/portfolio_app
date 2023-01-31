@@ -16,7 +16,7 @@ body,html{
 }
 
 body h1, h2, p, span, button, a, input{
-    @apply font-paragraph
+    @apply font-paragraph z-50
 }
 
 .svg-art > path {
@@ -26,8 +26,8 @@ body h1, h2, p, span, button, a, input{
 
 
 
-h1,h2,p,span,button,a,input,tr,td,th{
-    z-index: 50;
+h1,h2,p,span,button,a,input,tr,td,th,div{
+    z-index: 100;
     cursor: crosshair;
 }
 
@@ -37,16 +37,6 @@ a{
     @apply text-blue-900 hover:text-amber-800
 }
 
-
-/*@font-face {*/
-/*    font-family: 'Inconsolata', monospace;*/
-/*    src: local('Paper'),*/
-/*    url('../public/font/Inconsolata/Inconsolata-VariableFont.ttf') format('ttf')*/
-/*}*/
-
-.background{
-/*overflow-y:hidden;*/
-}
 
 
 
@@ -121,7 +111,7 @@ div.row-slider-content{
 
 
 .column-slider-content{
-
+align-items: center;
 }
 
 

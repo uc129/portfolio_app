@@ -186,8 +186,11 @@ const Background = ({children}: any) => {
 
 
     return (<>
-        <div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute top-0 left-0' +
-            ' overflow-hidden'}>
+        <div className={'bg-wrapper h-screen' +
+            ' animate-vertical' +
+            ' w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute' +
+            ' top-0 left-0' +
+            'overflow-hidden'}>
         {/*<div className={'bg-wrapper h-max  w-screen grid grid-rows-12 grid-cols-4 ' + ' absolute overflow-hidden'}>*/}
 
             {art.map((image: BackgroundItemProps, index: number) => {

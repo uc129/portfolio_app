@@ -3,10 +3,9 @@ const ColumnSlider=({children,data}:any)=>{
 let user= JSON.parse(localStorage.getItem('user')||'{}')
 
     return(
-        <div className={'bg-clip-img'}>
+        <>
             {/*// height= h-96 -> Manage Posts Component   */}
-        <div className={`column-slider-wrapper overflow-y-scroll
-         w-full min-w-fit ${data && data.height}`}>
+        <div className={`column-slider-wrapper overflow-y-scroll ${data && data.height}`}>
             <div className={'flex gap-6  bg-red-300 '}>
                 {data && <span className={'bg-red-300 '} > Total Items: {data.length} </span>}
                 {/*@ts-ignore*/}
@@ -21,7 +20,7 @@ let user= JSON.parse(localStorage.getItem('user')||'{}')
 
         </div>
 
-        </div>
+        </>
     )
 }
 

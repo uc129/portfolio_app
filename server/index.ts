@@ -16,7 +16,7 @@ app.use(formidable());
 app.use(cors());
 // app.use(headers)
 app.use('/api/log', loginRouter);
-app.use('/api/blog',authMiddleware, blogRouter);
+app.use('/api/blog', blogRouter);
 app.use('/api/profile',authMiddleware, require('./routes/profile.route').profileRouter);
 app.use('/api/spotify', require('./routes/spotifyApi.auth.route').spotifyRouter);
 app.use('/', (req: any, res: any) => {
