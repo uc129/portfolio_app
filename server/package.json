@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "portfolio server",
-  "main": "index.ts",
+  "main": "api/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.ts"
+    "start": "nodemon api/index.ts"
   },
   "author": "uc129",
   "license": "ISC",
