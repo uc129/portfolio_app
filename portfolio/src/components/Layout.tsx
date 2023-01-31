@@ -10,7 +10,7 @@ const Layout=({children}:any,)=>{
     return (
         <div>
 
-            {/*<Background>*/}
+            <Background>
             <div className='z-50'>
 
             </div>
@@ -31,7 +31,7 @@ const Layout=({children}:any,)=>{
                 <FooterSection/>
             </div>
         </div>
-            {/*</Background>*/}
+            </Background>
         </div>
 
     )
