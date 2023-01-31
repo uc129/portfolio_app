@@ -22,6 +22,10 @@ app.use('/api/spotify', require('../routes/spotifyApi.auth.route').spotifyRouter
 app.use('/', (req: any, res: any) => {
   res.send('Portfolio Backend Server');
 });
+
+app.use('/api/hello', (req: any, res: any) => {
+  res.json({message: 'Hello World!'});
+});
 app.get('/profile', (req: any, res: any) => {
   res.send('Profile');
 });
