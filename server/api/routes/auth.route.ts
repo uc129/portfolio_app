@@ -1,5 +1,5 @@
 /** @format */
-import AuthService from "../service/auth.service";
+import AuthService from "../../service/auth.service";
 const router = require('express').Router();
 const service = new AuthService()
 

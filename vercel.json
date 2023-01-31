@@ -2,19 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "./server/index.ts",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "./portfolio/build",
-      "use": "@vercel/static"
+      "src": "index.js",
+      "use": "@now/node"
     }
   ],
-
-  "rewrites": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/server/index.ts"
+
+      "src": "/(.*)",
+
+      "dest": "index.js"
     }
   ]
 }

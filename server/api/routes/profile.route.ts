@@ -2,7 +2,7 @@
 
 const router = require('express').Router();
 
-import ProfileService from '../service/profile.service';
+import ProfileService from '../../service/profile.service';
 
 const service = new ProfileService()
 

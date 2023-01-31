@@ -1,5 +1,5 @@
-import BlogService from "../service/blog.service";
-import authMiddleware from "../utils/auth.middleware";
+import BlogService from "../../service/blog.service";
+import authMiddleware from "../../utils/auth.middleware";
 
 const router = require('express').Router();
 const service = new BlogService()
